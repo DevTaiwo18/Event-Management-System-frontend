@@ -8,7 +8,7 @@
     padding-left: 120px;
 }
 
-.titleStyle{
+.titleStyle {
     font-size: 70px;
     line-height: 80px;
     font-weight: 700;
@@ -18,7 +18,7 @@
     padding-bottom: 10px;
 }
 
-.containerStyle ul{
+.containerStyle ul {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -26,11 +26,11 @@
     padding: 0;
 }
 
-.a{
+.a {
     text-decoration: none;
 }
 
-.containerStyle ul li{
+.containerStyle ul li {
     font-size: 14px;
     line-height: 24px;
     font-weight: 400;
@@ -39,7 +39,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-.containerStyle ul li .arrow-right{
+.containerStyle ul li .arrow-right {
     font-size: 10px;
     line-height: 24px;
     font-weight: 500;
@@ -52,22 +52,27 @@
     .containerStyle {
         padding-left: 20px;
     }
+
     .containerStyle {
+        padding-top: 100px;
         height: 60vh;
+    }
+
+    .titleStyle {
+        padding-bottom: 5px;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
     .containerStyle {
         padding-left: 10px;
     }
-    .titleStyle{
+
+    .titleStyle {
         font-size: 40px;
     }
-    .containerStyle ul{
+
+    .containerStyle ul {
         padding-left: 5px;
-    }
-    .containerStyle {
-        height: 50vh;
     }
 }

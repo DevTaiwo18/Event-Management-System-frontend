@@ -1,9 +1,9 @@
-.signup{
+.signup {
     width: 100%;
-    padding: 80px 110px;
+    padding: 60px 110px;
 }
 
-h1{
+h1 {
     font-size: 22px;
     font-weight: 500;
     font-style: normal;
@@ -13,14 +13,14 @@ h1{
     margin-bottom: 30px;
 }
 
-.formGroup{
+.formGroup {
     margin-bottom: 20px;
 }
 
-.formGroup input{
+.formGroup input {
     padding: 10px 50px 10px 15px;
     width: 30%;
-    border: 1px solid rgb(224,224,224);
+    border: 1px solid rgb(224, 224, 224);
     outline: none;
     font-size: 12px;
     font-weight: 400;
@@ -30,7 +30,7 @@ h1{
     font-family: "Poppins", sans-serif;
 }
 
-.p{
+.p {
     font-size: 12px;
     font-weight: 500;
     font-style: normal;
@@ -39,10 +39,10 @@ h1{
     font-family: "Poppins", sans-serif;
 }
 
-.btns{
-    padding: 10px 135px;
+.btns {
+    padding: 10px 80px;
     text-align: center;
-    border: 1px solid rgb(224,224,224);
+    border: 1px solid rgb(224, 224, 224);
     outline: none;
     font-size: 14px;
     font-weight: 500;
@@ -52,42 +52,31 @@ h1{
     color: #ffffff;
     font-family: "Poppins", sans-serif;
     cursor: pointer;
-    background-color: rgb(245,63,123);
+    background-color: rgb(245, 63, 123);
+}
+
+.btns span {
+    text-align: center; 
 }
 
 @media (max-width: 1024px) {
-    .formGroup input{
+    .formGroup input {
         width: 50%;
-    }
-    .btns{
-        padding: 10px 20.7%;
     }
 }
 
 @media (max-width: 768px) {
-    .signup{
+    .signup {
         width: 100%;
         padding: 40px 20px;
     }
 
-    .formGroup input{
+    .formGroup input {
         width: 100%;
     }
 
-    .btns{
-        padding: 10px 45%;
-    }
-}
-
-@media (max-width: 500px) {
-    .btns{
-        padding: 10px 40%;
-    }
-}
-
-@media (max-width: 350px) {
-    .btns{
-        padding: 10px 37%;
+    .btns {
+        padding: 10px 70px;
     }
 }
 

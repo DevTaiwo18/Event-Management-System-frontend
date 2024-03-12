@@ -55,7 +55,7 @@ const AuthProvider = ({ children }) => {
             setToken(res.data.token)
             localStorage.setItem("user", JSON.stringify(res.data.user))
             setUser(res.data.user)
-            // setMessage({ content: `${data.message}`, status: `${data.status}` })
+            setMessage({ content: `${data.message}`, status: `${data.status}` })
             navigation("/horizontal/createEvent")
             
         } catch (error) {
@@ -71,7 +71,7 @@ const AuthProvider = ({ children }) => {
             setToken(null)
             setUser({})
             navigation("/horizontal/")
-            // setMessage({ content: `${data.message}`, status: `${data.status}` })
+            setMessage({ content: `${data.message}`, status: `${data.status}` })
 
         } catch (error) {
             console.log(error);
@@ -88,7 +88,7 @@ const AuthProvider = ({ children }) => {
 
     return <AuthContext.Provider value={values}>
         {children}
-        {/* <Message message={message.content} status={message.status} /> */}
+        <Message message={message.content} status={message.status} />
     </AuthContext.Provider>
 }
 

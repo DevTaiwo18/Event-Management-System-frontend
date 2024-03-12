@@ -40,7 +40,7 @@ const LoginPage = () => {
           <p>Password</p>
           <input type="password"onChange={handleLoginInputs} name='password' value={formData.password}/>
         </div>
-        <div className="LformGroup'">
+        <div className="LformGroup">
         <button className="Lbtns gap-2 d-flex align-items-center" type="button" onClick={handleSignInClick} disabled={isLoading}>
             {isLoading ? (
               <span className="spinner-grow spinner-grow-sm me-2" role="status" aria-hidden="true"></span>

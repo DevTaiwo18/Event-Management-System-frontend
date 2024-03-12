@@ -22,7 +22,7 @@ const SignupPage = () => {
   const registerClick = async () => {
     console.log(formDetails);
     setIsLoading(true);
-    // await registerUser(formData); 
+    await registerUser(formData); 
     setIsLoading(false);
   };
 
@@ -42,12 +42,12 @@ const SignupPage = () => {
           <input type="password" placeholder='Password *' name='password' value={formDetails.password} onChange={handleFormInput} />
         </div>
         <p className='p'>Note: Your password must be at least 6 characters long.</p>
-        <div className="formGroup'">
+        <div className="formGroup">
           <button className="btns gap-2 d-flex align-items-center" type="button" onClick={registerClick} disabled={isLoading}>
             {isLoading ? (
               <span className="spinner-grow spinner-grow-sm me-2" role="status" aria-hidden="true"></span>
             ) : (
-              'REGISTER'
+              <span>REGISTER</span>
             )}
           </button>
         </div>
