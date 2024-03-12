@@ -1,0 +1,92 @@
+.login{
+    width: 100%;
+    padding: 80px 110px;
+}
+
+h1{
+    font-size: 22px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 24px;
+    color: #242b46;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 30px;
+}
+
+.LformGroup{
+    margin-bottom: 20px;
+}
+
+.LformGroup input{
+    padding: 10px 10px 10px 15px;
+    width: 30%;
+    border: 1px solid rgb(224,224,224);
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 24px;
+    color: #242b46;
+    font-family: "Poppins", sans-serif;
+}
+
+p{
+    font-size: 14px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 24px;
+    color: #242b46;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 8px;
+}
+
+.Lbtns{
+    padding: 10px 142px;
+    text-align: center;
+    border: 1px solid rgb(224,224,224);
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 24px;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    background-color: rgb(245,63,123);
+}
+
+@media (max-width: 1024px) {
+    .LformGroup input{
+        width: 50%;
+    }
+
+    .Lbtns{
+        padding: 10px 22%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .login{
+        width: 100%;
+        padding: 40px 20px;
+    }
+
+    .LformGroup input{
+        width: 100%;
+    }
+
+    .Lbtns{
+        padding: 10px 46.2%;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .Lbtns{
+        padding: 10px 42%;
+    }
+}
+
+
+

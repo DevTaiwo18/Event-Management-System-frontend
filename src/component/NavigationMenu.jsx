@@ -1,0 +1,41 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const NavigationMenu = ({ className }) => {
+  return (
+    <div className={`nav ${className}`}>
+      <ul>
+        <p>Main</p>
+        <Link className='a' to="/vertical/createEvent">
+          <li><i className="fa-solid fa-plus"></i>Post an Event</li>
+        </Link>
+        <Link className='a' to="/vertical/createTicket">
+          <li><i className="fa-solid fa-list"></i>Create Ticket</li>
+        </Link>
+        <Link className='a' to="/vertical/manageevent">
+          <li><i className="fa-solid fa-elevator"></i>Manage Event</li>
+        </Link>
+        <Link className='a' to="/vertical/manageregistration">
+          <li><i className="fa-solid fa-registered"></i>Manage Registration</li>
+        </Link>
+        <Link className='a' to="/vertical/transaction">
+          <li><i className="fa-solid fa-money-bill-transfer"></i>Transaction</li>
+        </Link>
+        <Link className='a' to="/vertical/changepassword">
+          <li><i className="fa-solid fa-lock"></i>Change Password</li>
+        </Link>
+      </ul>
+      <ul>
+        <p>Account</p>
+        <Link className='a' to="/vertical/editprofile">
+          <li><i className="fa-regular fa-user"></i>Edit Username</li>
+        </Link>
+        <Link className='a' to="/logout"> 
+          <li><i className="fa-solid fa-arrow-right-from-bracket"></i>Logout</li>
+        </Link>
+      </ul>
+    </div>
+  );
+};
+
+export default NavigationMenu;

@@ -1,0 +1,172 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.Header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 1000;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 25px;
+    display: flex;
+}
+
+.left img {
+    height: 3rem;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.a {
+    text-decoration: none;
+}
+
+.right p {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(199, 197, 200);
+    font-family: "Poppins", sans-serif;
+    padding-top: 17px;
+}
+
+.right button {
+    padding: 8px 30px;
+    background-color: #f53f7b;
+    border-radius: 25px;
+    border: none;
+    font-size: 12px;
+    line-height: 24px;
+    font-weight: 600;
+    font-style: normal;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+}
+
+.menu {
+    padding: 3px 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+.menu i {
+    font-size: 30px;
+    color: #000000;
+}
+
+.vertical {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+.nav {
+    width: 30%;
+    display: block;
+    background-color: rgb(42, 42, 42);
+    text-align: justify;
+    padding-bottom: 100px;
+}
+
+.nav ul {
+    display: block;
+    list-style-type: none;
+    text-align: justify;
+    padding: 0;
+    margin: 0;
+    line-height: 2;
+}
+
+.nav ul p {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(199, 197, 200);
+    border: 1px solid rgb(52, 58, 64);
+    padding: 10px 30px;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.nav ul li {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(199, 197, 200);
+    padding: 10px 30px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav ul li i{
+    font-size: 16px;
+    color: rgb(199, 197, 200);
+}
+
+.show-component {
+    width: 80%;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    .show-component {
+        width: 100%;
+    }
+
+    .right button {
+        display: none;
+        ;
+    }
+
+    .Header {
+        padding: 15px 10px;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .right {
+        gap: 0px;
+    }
+
+    .navVisible {
+        display: block !important;
+        animation: fadeIn 0.5s ease-out;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        padding: 10px;
+        margin-top: 10px;
+        top: 70px;
+        z-index: 500;
+        background-color: rgb(42, 42, 42);
+        text-align: justify;
+        padding-bottom: 10px;
+    }
+
+    .nav ul p {
+        display: none;
+    }
+
+    .nav ul li {
+        justify-content: start;
+        padding: 10px 10px;
+    }
+
+}

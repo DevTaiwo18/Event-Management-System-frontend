@@ -1,0 +1,96 @@
+.body {
+    padding: 20px;
+}
+
+.event {
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.event h1 {
+    color: rgb(77, 77, 77);
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.formGroup {
+    flex: 1;
+    margin-right: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: rgb(77, 77, 77);
+    font-size: 13px;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+}
+#eventName,
+#location,
+#venues,
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    margin-top: 5px;
+    cursor: pointer;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+}
+
+select{
+    outline: none;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+    color: rgb(77, 77, 77);
+}
+
+button {
+    background-color: #f53f7b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    .flex {
+       display: block;
+    }
+    
+    .body{
+        padding: 5px;
+    }
+    .event{
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+}

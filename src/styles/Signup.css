@@ -1,0 +1,93 @@
+.signup{
+    width: 100%;
+    padding: 80px 110px;
+}
+
+h1{
+    font-size: 22px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 24px;
+    color: #242b46;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 30px;
+}
+
+.formGroup{
+    margin-bottom: 20px;
+}
+
+.formGroup input{
+    padding: 10px 50px 10px 15px;
+    width: 30%;
+    border: 1px solid rgb(224,224,224);
+    outline: none;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 24px;
+    color: #242b46;
+    font-family: "Poppins", sans-serif;
+}
+
+.p{
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 24px;
+    color: #242b46;
+    font-family: "Poppins", sans-serif;
+}
+
+.btns{
+    padding: 10px 135px;
+    text-align: center;
+    border: 1px solid rgb(224,224,224);
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    border-radius: none !important;
+    line-height: 24px;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    background-color: rgb(245,63,123);
+}
+
+@media (max-width: 1024px) {
+    .formGroup input{
+        width: 50%;
+    }
+    .btns{
+        padding: 10px 20.7%;
+    }
+}
+
+@media (max-width: 768px) {
+    .signup{
+        width: 100%;
+        padding: 40px 20px;
+    }
+
+    .formGroup input{
+        width: 100%;
+    }
+
+    .btns{
+        padding: 10px 45%;
+    }
+}
+
+@media (max-width: 500px) {
+    .btns{
+        padding: 10px 40%;
+    }
+}
+
+@media (max-width: 350px) {
+    .btns{
+        padding: 10px 37%;
+    }
+}
+
