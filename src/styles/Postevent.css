@@ -33,9 +33,9 @@ label {
     font-weight: 600;
     font-family: "Poppins", sans-serif;
 }
-#eventName,
+#name,
 #location,
-#venues,
+#venue,
 input[type="date"],
 select,
 textarea {

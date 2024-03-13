@@ -4,6 +4,8 @@ import AuthProvider from './context/authContext';
 import Horizontal from './route/Horizontal';
 import Vertical from './route/Vertical';
 import Landingpage from './route/Landingpage';
+import EventProvider from './context/eventContext';
+import UserProvider from './context/userContext';
 
 function App() {
     const [token, setToken] = useState('');
@@ -18,11 +20,15 @@ function App() {
     return (
         <Router>
             <AuthProvider>
-                <Routes>    
-                    <Route path='/' element={<Landingpage />} />
-                    <Route path="/horizontal/*" element={<Horizontal />} />
-                    <Route path="/vertical/*" element={<Vertical />} />
-                </Routes>
+                <UserProvider>
+                    <EventProvider>
+                        <Routes>
+                            <Route path='/' element={<Landingpage />} />
+                            <Route path="/horizontal/*" element={<Horizontal />} />
+                            <Route path="/vertical/*" element={<Vertical />} />
+                        </Routes>
+                    </EventProvider>
+                </UserProvider>
             </AuthProvider>
         </Router>
     );

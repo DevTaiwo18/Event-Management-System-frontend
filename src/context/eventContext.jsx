@@ -1,23 +1,20 @@
 import React, { createContext, useContext, useState } from "react";
 import axios from "axios";
 import Message from "../component/Message";
-import { useNavigate } from "react-router-dom";
 
-const UserContext = createContext()
+const EventContext = createContext();
 
-export const useUserContext = () => useContext(UserContext)
+export const useEventContext = () => useContext(EventContext);
 
-const UserProvider = ({ children }) => {
-    const navigate = useNavigate();
+const EventProvider = ({ children }) => {
     const apiUrl = import.meta.env.VITE_apiUrl;
     const [message, setMessage] = useState({ content: "", status: "" });
 
-    
-    const changepassword = async (formData, token) =>{
+    const createEvent = async (formData, token) => {
         try {
-            const response = await axios.patch(`${apiUrl}/user/changepassword`, formData, {
+            const response = await axios.post(`${apiUrl}/event/createEvent`, formData, {
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'multipart/form-data',
                     'Authorization': `Bearer ${token}`
                 }
             });
@@ -26,18 +23,17 @@ const UserProvider = ({ children }) => {
         } catch (error) {
             const errorMessage = error.response?.data?.message;
             setMessage({ content: errorMessage, status: 'fail' });
-            navigate("/")
         }
-    }
+    };
 
-    const values = { changepassword };
+    const values = { createEvent };
 
     return (
-        <UserContext.Provider value={values}>
+        <EventContext.Provider value={values}>
             {children}
             {message.content && <Message content={message.content} status={message.status} />}
-        </UserContext.Provider>
+        </EventContext.Provider>
     );
-}
+};
 
-export default UserProvider;
+export default EventProvider;

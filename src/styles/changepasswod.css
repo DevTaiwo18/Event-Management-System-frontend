@@ -1,0 +1,39 @@
+.changep{
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.changep h1 {
+    color: rgb(77, 77, 77);
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+}
+
+.cform-group {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.cform-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: rgb(77, 77, 77);
+    font-size: 13px;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+}
+
+.cform-group input{
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    margin-top: 5px;
+    cursor: pointer;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    margin-bottom: 20px;
+}
