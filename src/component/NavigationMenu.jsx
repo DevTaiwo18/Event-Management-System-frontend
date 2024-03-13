@@ -34,7 +34,7 @@ const NavigationMenu = ({ className }) => {
         <Link className='a' to="/vertical/editprofile">
           <li><i className="fa-regular fa-user"></i>Edit Username</li>
         </Link>
-        <Link className='a' onClick={() => logout}> 
+        <Link className='a' onClick={logout} to={"/"}> 
           <li><i className="fa-solid fa-arrow-right-from-bracket"></i>Logout</li>
         </Link>
       </ul>

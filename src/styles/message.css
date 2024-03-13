@@ -25,9 +25,9 @@
 .message {
   position: fixed;
   z-index: 2000;
-  bottom: 40px;
+  top: 100px;
   right: 20px;
-  padding: 10px;
+  padding: 10px 30px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: start;

@@ -87,7 +87,7 @@ const Navbar = () => {
 
           {token ?( <div onClick={logout} className={styles.circle}>
             <p>Log Out</p>
-          </div>) : <div className={styles.f}>(<Link className={styles.a} to="/horizontal/login">
+          </div> ) : <div className={styles.f}>(<Link className={styles.a} to="/horizontal/login">
             <div className={styles.circle}>
               <p>Sign ln</p>
             </div>

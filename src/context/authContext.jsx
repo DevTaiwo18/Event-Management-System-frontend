@@ -32,6 +32,7 @@ const AuthProvider = ({ children }) => {
         try {
             const response = await action();
             setUserData(response);
+
             if (showMessage) {
                 setMessage({ content: response.message, status: 'success' });
             }
@@ -52,10 +53,18 @@ const AuthProvider = ({ children }) => {
         return response.data;
     }, () => navigate("/"));
 
-    const logout = () => performActionWithImmediateFeedback(async () => {
-        await axios.post(`${apiUrl}/auth/logout`, { token });
-        clearUserData();
-    }, () => navigate("/"), false);
+    const logout = async () => {
+        try {
+            await axios.post(`${apiUrl}/auth/logout`, { token });
+            clearUserData();
+            setMessage({ content: "Logout successful", status: 'success' });
+            setTimeout(() => navigate("/"), 500); 
+        } catch (error) {
+            const errorMessage = error.response?.data?.message || "Logout failed. Please try again.";
+            setMessage({ content: errorMessage, status: 'fail' });
+        }
+    };
+
 
     const values = { token, user, registerUser, handleSignIn, logout };
 
