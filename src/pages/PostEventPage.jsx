@@ -50,11 +50,6 @@ const PostEventPage = () => {
         </div>
         <button>Post an event</button>
       </div>
-
-      <div className="ticket">
-
-      </div>
-
     </div>
   )
 }

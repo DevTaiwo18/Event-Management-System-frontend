@@ -1,96 +1,70 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import Message from "../component/Message";
+import Message from "./../component/Message";
 
 const AuthContext = createContext();
-export const useAuthContext = () => {
-    return useContext(AuthContext)
-}
+
+export const useAuthContext = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
-    const navigation = useNavigate()
-    const [token, setToken] = useState(null);
-    const [user, setUser] = useState({});
+    const navigate = useNavigate();
+    const [token, setToken] = useState(localStorage.getItem("token"));
+    const [user, setUser] = useState(() => JSON.parse(localStorage.getItem("user")) || {});
     const apiUrl = import.meta.env.VITE_apiUrl;
-    const [message, setMessage] = useState({ content: "", status: "" })
+    const [message, setMessage] = useState({ content: "", status: "" });
 
-    useEffect(() => {
-        const tempToken = localStorage.getItem("token")
-        setToken(tempToken);
+    const setUserData = (data) => {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+        setToken(data.token);
+        setUser(data.user);
+    };
 
-        const tempUser = JSON.parse(localStorage.getItem("user"));
-        setUser(tempUser);
-    }, [])
+    const clearUserData = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        setToken(null);
+        setUser({});
+    };
 
-    const registerUser = async (formDetails) => {
+    const performActionWithImmediateFeedback = async (action, successCallback, showMessage = true) => {
         try {
-
-            const res = await fetch(`${apiUrl}/auth/signup`, {
-                method: "POST",
-                body: JSON.stringify(formDetails),
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-            const data = await res.json()
-            localStorage.setItem("token", data.token);
-            setToken(data.token)
-            localStorage.setItem("user", JSON.stringify(data.user))
-            setUser(data.user)
-            console.log(user);
-            // setMessage({ content: `${data.message}`, status: `${data.status}` })
-            navigation("/horizontal/createEvent")
+            const response = await action();
+            setUserData(response);
+            if (showMessage) {
+                setMessage({ content: response.message, status: 'success' });
+            }
+            successCallback?.();
         } catch (error) {
-            console.log("Error", error)
+            const errorMessage = error.response?.data?.message || error.message;
+            setMessage({ content: errorMessage, status: 'fail' });
         }
-    }
+    };
 
-    const handleSignIn = async (formData) => {
-        try {
-            const res = await axios.post(`${apiUrl}/auth/login`, formData);
-            console.log(res)
+    const registerUser = (formDetails) => performActionWithImmediateFeedback(async () => {
+        const response = await axios.post(`${apiUrl}/auth/signup`, formDetails);
+        return response.data;
+    }, () => navigate("/vertical/createEvent"));
 
-            localStorage.setItem("token", res.data.token);
-            setToken(res.data.token)
-            localStorage.setItem("user", JSON.stringify(res.data.user))
-            setUser(res.data.user)
-            setMessage({ content: `${data.message}`, status: `${data.status}` })
-            navigation("/horizontal/createEvent")
-            
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    const handleSignIn = (formData) => performActionWithImmediateFeedback(async () => {
+        const response = await axios.post(`${apiUrl}/auth/login`, formData);
+        return response.data;
+    }, () => navigate("/"));
 
-    const logout = async () => {
-        try {
-            const res = await axios.post(`${apiUrl}/auth/logout`, { token })
-            localStorage.removeItem("token");
-            localStorage.removeItem("user");
-            setToken(null)
-            setUser({})
-            navigation("/horizontal/")
-            setMessage({ content: `${data.message}`, status: `${data.status}` })
+    const logout = () => performActionWithImmediateFeedback(async () => {
+        await axios.post(`${apiUrl}/auth/logout`, { token });
+        clearUserData();
+    }, () => navigate("/"), false);
 
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    const values = { token, user, registerUser, handleSignIn, logout };
 
-    const values = {
-        token,
-        user,
-        registerUser,
-        handleSignIn,
-        logout
-    }
+    return (
+        <AuthContext.Provider value={values}>
+            {children}
+            {message.content && <Message content={message.content} status={message.status} />}
+        </AuthContext.Provider>
+    );
+};
 
-    return <AuthContext.Provider value={values}>
-        {children}
-        <Message message={message.content} status={message.status} />
-    </AuthContext.Provider>
-}
-
-export default AuthProvider
-
+export default AuthProvider;

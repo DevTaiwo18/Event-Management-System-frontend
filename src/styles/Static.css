@@ -6,6 +6,7 @@
     background-size: cover;
     padding-top: 140px;
     padding-left: 120px;
+    line-height: 0;
 }
 
 .titleStyle {
@@ -54,12 +55,24 @@
     }
 
     .containerStyle {
-        padding-top: 100px;
-        height: 60vh;
+        padding-top: 120px;
+        height: 50vh;
+    }
+
+    .titleStyle {
+        font-size: 40px;
+        line-height: 30px;
     }
 
     .titleStyle {
         padding-bottom: 5px;
+    }
+}
+
+@media (max-width:767px) {
+    .containerStyle {
+        padding-top: 130px;
+        height: 60vh;
     }
 }
 

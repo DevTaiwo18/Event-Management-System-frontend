@@ -2,19 +2,25 @@ import React, { useState, useEffect } from 'react';
 import './../styles/message.css'; 
 
 const Message = ({ content, status }) => {
+  console.log(content, status);
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    setIsVisible(true);
+
+    const hideTimeout = setTimeout(() => {
       setIsVisible(false);
-    }, 5000); 
+    }, 2000);
 
-    return () => clearTimeout(timeout);
-  }, []);
-
+    return () => clearTimeout(hideTimeout);
+  }, [content, status]);
+  
+  if (!content) {
+    return null;
+  }
 
   return (
-    <div className={`message ${status} ${isVisible ? 'show' : 'hide'}`}>
+    <div className={`message ${status} ${isVisible ? '' : 'hide'}`}>
       <div className="content">{content}</div>
     </div>
   );

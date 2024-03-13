@@ -1,16 +1,20 @@
-import React, { useState } from 'react'
-import Static from '../component/Static'
-import "./../styles/Signup.css"
-import { useAuthContext } from '../context/authContext'
+import React, { useState } from 'react';
+import Static from '../component/Static';
+import "./../styles/Signup.css";
+import { useAuthContext } from '../context/authContext';
+import Message from '../component/Message';
 
 const SignupPage = () => {
-  const { registerUser } = useAuthContext()
+  const { registerUser } = useAuthContext();
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [showError, setShowError] = useState(false);
   const [formDetails, setFormDetails] = useState({
     username: "",
     email: "",
     password: ""
-  })
+  });
+
   const handleFormInput = (e) => {
     const { name, value } = e.target;
     setFormDetails(data => ({
@@ -20,12 +24,20 @@ const SignupPage = () => {
   }
 
   const registerClick = async () => {
-    console.log(formDetails);
-    setIsLoading(true);
-    await registerUser(formData); 
-    setIsLoading(false);
-  };
+    if (!formDetails.username || !formDetails.email || !formDetails.password) {
+      setErrorMessage("Please fill in all fields.");
+      setShowError(false);
+      setTimeout(() => {
+        setShowError(true);
+      }, 0);
+      return;
+    }
 
+    setIsLoading(true);
+    await registerUser(formDetails);
+    setIsLoading(false);
+  }
+  
   return (
     <div>
       <Static title="REGISTER" title2="Register" />
@@ -42,6 +54,7 @@ const SignupPage = () => {
           <input type="password" placeholder='Password *' name='password' value={formDetails.password} onChange={handleFormInput} />
         </div>
         <p className='p'>Note: Your password must be at least 6 characters long.</p>
+        {showError && errorMessage && <Message content={errorMessage} status="fail" />}
         <div className="formGroup">
           <button className="btns gap-2 d-flex align-items-center" type="button" onClick={registerClick} disabled={isLoading}>
             {isLoading ? (
@@ -52,9 +65,8 @@ const SignupPage = () => {
           </button>
         </div>
       </div>
-
     </div>
   )
 }
 
-export default SignupPage
+export default SignupPage;

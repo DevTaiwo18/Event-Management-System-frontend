@@ -1,40 +1,57 @@
-.message {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: opacity 0.3s ease-in-out;
+@keyframes slideIn {
+  from {
+    right: -300px;
     opacity: 0;
-    text-align: start;
+  }
+
+  to {
+    right: 20px;
+    opacity: 1;
+  }
 }
 
-.message.show {
+@keyframes slideOut {
+  from {
+    right: 20px;
     opacity: 1;
+  }
+
+  to {
+    right: -300px;
+    opacity: 0;
+  }
+}
+
+.message {
+  position: fixed;
+  z-index: 2000;
+  bottom: 40px;
+  right: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: start;
+  animation: slideIn 0.5s forwards;
 }
 
 .message.hide {
-    opacity: 0;
+  animation: slideOut 0.5s forwards;
 }
 
 .success {
-    background-color: #4caf50;
-    color: rgb(77, 77, 77);
+  background-color: rgb(59,183,94);
+  color: white;
 }
 
 .fail {
-    background-color: #f443;
-    color: rgb(77, 77, 77);
-
+  background-color: rgb(212, 52, 43);
+  color: white;
 }
 
 .content {
-    margin-bottom: 5px;
-    font-size: 16px;
-    font-weight: 500;
-    font-style: normal;
-    line-height: 24px;
-    font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 24px;
+  font-family: "Poppins", sans-serif;
 }
-

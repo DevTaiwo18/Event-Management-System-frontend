@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuthContext } from '../context/authContext';
 
 const NavigationMenu = ({ className }) => {
+
+  const {logout} = useAuthContext()
+  
   return (
     <div className={`nav ${className}`}>
       <ul>
@@ -30,7 +34,7 @@ const NavigationMenu = ({ className }) => {
         <Link className='a' to="/vertical/editprofile">
           <li><i className="fa-regular fa-user"></i>Edit Username</li>
         </Link>
-        <Link className='a' to="/logout"> 
+        <Link className='a' onClick={() => logout}> 
           <li><i className="fa-solid fa-arrow-right-from-bracket"></i>Logout</li>
         </Link>
       </ul>
