@@ -73,7 +73,7 @@
 }
 
 .nav {
-    width: 30%;
+    width: 25%;
     display: block;
     background-color: rgb(42, 42, 42);
     text-align: justify;
@@ -116,7 +116,7 @@
 }
 
 .show-component {
-    width: 80%;
+    width: 85%;
 }
 
 @media (max-width: 768px) {

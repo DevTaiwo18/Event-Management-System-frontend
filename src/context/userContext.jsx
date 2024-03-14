@@ -10,6 +10,7 @@ export const useUserContext = () => useContext(UserContext)
 const UserProvider = ({ children }) => {
     const navigate = useNavigate();
     const apiUrl = import.meta.env.VITE_apiUrl;
+    const [user, setUser] = useState({});
     const [message, setMessage] = useState({ content: "", status: "" });
 
     
@@ -30,7 +31,24 @@ const UserProvider = ({ children }) => {
         }
     }
 
-    const values = { changepassword };
+    const editusername = async (formData, token) => {
+        try {
+            const response = await axios.patch(`${apiUrl}/user/profile`, formData,{
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            setMessage({ content: response.data.message, status: response.data.status });
+            localStorage.setItem("user", JSON.stringify(response.data.user))
+            setUser(response.data.user)
+        } catch (error) {
+            const errorMessage = error.response?.data?.message;
+            setMessage({ content: errorMessage, status: 'fail' });
+        }
+    }
+
+    const values = { changepassword, editusername };
 
     return (
         <UserContext.Provider value={values}>

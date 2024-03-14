@@ -25,14 +25,11 @@ const NavigationMenu = ({ className }) => {
         <Link className='a' to="/vertical/transaction">
           <li><i className="fa-solid fa-money-bill-transfer"></i>Transaction</li>
         </Link>
-        <Link className='a' to="/vertical/changepassword">
-          <li><i className="fa-solid fa-lock"></i>Change Password</li>
-        </Link>
       </ul>
       <ul>
         <p>Account</p>
         <Link className='a' to="/vertical/editprofile">
-          <li><i className="fa-regular fa-user"></i>Edit Username</li>
+          <li><i className="fa-regular fa-user"></i>Edit Profile</li>
         </Link>
         <Link className='a' onClick={logout} to={"/"}> 
           <li><i className="fa-solid fa-arrow-right-from-bracket"></i>Logout</li>

@@ -32,10 +32,6 @@ const AuthProvider = ({ children }) => {
         try {
             const response = await action();
             setUserData(response);
-
-            if (showMessage) {
-                setMessage({ content: response.message, status: 'success' });
-            }
             successCallback?.();
         } catch (error) {
             const errorMessage = error.response?.data?.message || error.message;
@@ -57,8 +53,7 @@ const AuthProvider = ({ children }) => {
         try {
             await axios.post(`${apiUrl}/auth/logout`, { token });
             clearUserData();
-            setMessage({ content: "Logout successful", status: 'success' });
-            setTimeout(() => navigate("/"), 500); 
+            navigate("/")
         } catch (error) {
             const errorMessage = error.response?.data?.message || "Logout failed. Please try again.";
             setMessage({ content: errorMessage, status: 'fail' });
