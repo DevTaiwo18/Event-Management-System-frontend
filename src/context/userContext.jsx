@@ -42,11 +42,13 @@ const UserProvider = ({ children }) => {
             setMessage({ content: response.data.message, status: response.data.status });
             localStorage.setItem("user", JSON.stringify(response.data.user))
             setUser(response.data.user)
+            window.location.reload();
         } catch (error) {
             const errorMessage = error.response?.data?.message;
             setMessage({ content: errorMessage, status: 'fail' });
         }
     }
+
 
     const values = { changepassword, editusername };
 

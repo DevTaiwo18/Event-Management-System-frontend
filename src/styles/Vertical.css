@@ -38,7 +38,7 @@
     font-style: normal;
     color: #000000;
     font-family: "Poppins", sans-serif;
-    padding-top: 17px;
+    padding-top: 14px;
 }
 
 .right button {
@@ -108,6 +108,10 @@
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+.nav ul li:hover{
+    color: #f53f7b;
 }
 
 .nav ul li i{

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './../styles/message.css'; 
 
 const Message = ({ content, status }) => {
-  console.log(content, status);
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {

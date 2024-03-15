@@ -19,7 +19,7 @@ const PostEventPage = () => {
     description: '',
   });
 
-  
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -59,9 +59,19 @@ const PostEventPage = () => {
     }
 
     setIsLoading(true);
-    console.log(formData);
     await createEvent(formData, token);
     setIsLoading(false);
+
+    setFormData({
+      name: '',
+      category: '',
+      location: '',
+      date: '',
+      venue: '',
+      image: null,
+      description: '',
+    });
+
   };
 
   return (

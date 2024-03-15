@@ -1,0 +1,173 @@
+.showmEventm {
+    width: 100%;
+    text-align: center !important;
+    padding: 0;
+    border: none;
+    margin: 0;
+}
+
+.shownOdataimg {
+    width: 40%;
+    margin: 0 auto;
+}
+
+.btnShow {
+    background-color: #f53f7b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.events-table {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.events-table h1 {
+    color: rgb(77, 77, 77);
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.event-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #cccccc41;
+    border-top: 1px solid #cccccc41;
+    padding: 10px 0;
+}
+
+.event-data {
+    display: flex;
+    align-items: center;
+}
+
+.event-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.event-title {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(77, 77, 77);
+}
+
+.event-location {
+    margin: 5px 0 0;
+    font-size: 12px;
+    color: #666666c6;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+}
+
+.event-date {
+    margin: 0 20px;
+    flex-shrink: 0;
+    font-size: 14px;
+    color: #666666c6;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+}
+
+.event-action button {
+    padding: 6px 12px;
+    background-color: #f53f7b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+}
+
+.event-action button:hover {
+    background-color: #f53f7b;
+}
+
+.form-parent {
+    display: flex;
+    gap: 10px;
+}
+
+.form-check input[type="radio"]:checked{
+    background-color:#f53f7b;
+    border: none;
+}
+
+.add-submit-button{
+    padding: 6px 12px;
+    background-color: #f53f7b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+}
+
+.header-row {
+    font-weight: 400;
+    font-size: 14px;
+    color: #333;
+    padding: 12px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+    .shownOdataimg {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .events-table {
+        overflow-x: scroll !important;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .event-image {
+        display: none;
+    }
+
+    .event-action button {
+        padding: 6px 8px;
+        font-size: 8px;
+    }
+
+    .event-title {
+        font-size: 10px;
+    }
+
+    .event-location {
+        margin: 5px 0 0;
+        font-size: 10px;
+        color: #666666c6;
+        font-weight: 400;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .event-date {
+        margin: 0 20px;
+        flex-shrink: 0;
+        font-size: 10px;
+        color: #666666c6;
+        font-weight: 400;
+        font-family: "Poppins", sans-serif;
+    }
+}
