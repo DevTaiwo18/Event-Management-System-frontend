@@ -1,0 +1,197 @@
+.manage-events-page {
+    padding: 20px;
+}
+
+.manage-event-card {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.manage-event-details {
+    display: flex;
+    align-items: center;
+}
+
+.manage-event-image {
+    border-radius: 10px;
+    margin-right: 20px;
+    width: 30%;
+}
+
+.manage-event-info {
+    flex-grow: 1;
+}
+
+.manage-event-title {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(77, 77, 77);
+}
+
+.manage-event-location,
+.manage-event-description {
+    font-size: 12px;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+}
+
+.manage-event-location {
+    color: #f53f7b;
+}
+
+.manage-event-date {
+    font-size: 14px;
+    color: #666666c6;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+}
+
+.manage-event-description {
+    color: #666666;
+    margin-bottom: 10px;
+}
+
+.manage-event-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+}
+
+.manage-update-button,
+.manage-delete-button {
+    padding: 6px 12px;
+    background-color: #f53f7b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+}
+
+.manage-delete-button:hover,
+.manage-update-button:hover {
+    background-color: #f53f7b;
+}
+
+.manage-ticket-section {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-top: 20px;
+}
+
+.manage-ticket-card {
+    border: 1px solid #ccc;
+    margin-top: -2px;
+    width: 250px;
+}
+
+.boder {
+    padding: 10px;
+    background-color: #000;
+    color: white;
+    text-align: center;
+    border: 1px solid #000;
+}
+
+.boder h1 {
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+.manage-ticket-card .card-body {
+    padding: 10px;
+    text-align: center;
+}
+
+.manage-ticket-card .card-body .ticketImg {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 3rem;
+}
+
+.manage-ticket-card .card-body .card-text {
+    font-size: 14px;
+    color: #666666c6;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+}
+
+.manage-get-ticket-button {
+    background-color: #f53f7b;
+    border-color: #f53f7b;
+}
+
+.manage-get-ticket-button:hover {
+    background-color: #ec0c59;
+    border-color: #ec0c59;
+}
+
+.manage-delete-ticket-button {
+    padding: 6px 12px;
+    background-color: transparent;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    margin-top: 12px;
+}
+
+.manage-update-ticket-button {
+    padding: 6px 12px;
+    background-color: transparent;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 12px;
+    font-family: "Poppins", sans-serif;
+}
+
+.flex-display {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (max-width: 1024px) {
+    .manage-ticket-card .card-body .ticketImg {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 5rem;
+        display: none !important;
+    }
+    .flex-display {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .manage-event-details {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .manage-event-image {
+        width: 100%;
+        height: 35vh;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}

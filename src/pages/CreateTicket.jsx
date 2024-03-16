@@ -115,7 +115,7 @@ const CreateTicket = () => {
               </select>
             </div>
             <div className="mb-3">
-              <label htmlFor="sit" className="form-label">Sit</label>
+              <label htmlFor="sit" className="form-label">Avaliable Seat</label>
               <input type="text" className="form-control" id="sit" value={sit} onChange={(e) => setSit(e.target.value)} />
             </div>
             <div className="mb-3 form-parent">

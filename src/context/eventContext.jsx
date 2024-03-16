@@ -61,8 +61,7 @@ const EventProvider = ({ children }) => {
 
     const eventTicket = async (eventId) => {
         try {
-            const response = await axios.get(`/api/events/getTicket/${eventId}`);
-            setMessage({ content: response.data.message, status: response.data.status });
+            const response = await axios.get(`${apiUrl}/event/getTicket/${eventId}`);
             setTicket(response.data.tickets);
         } catch (error) {
             const errorMessage = error.response?.data?.message;
@@ -70,7 +69,24 @@ const EventProvider = ({ children }) => {
         }
     }
 
-    const values = { createEvent, getUserEvent, event, createTicket, eventTicket, Ticket};
+    const updateEvents = async (ticketId, updateData, token) => {
+        try {
+            const response = await axios.put(`${apiUrl}/event/${ticketId}`, updateData, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            setMessage({ content: response.data.message, status: response.data.status });
+        } catch (error) {
+            const errorMessage = error.response?.data?.message;
+            setMessage({ content: errorMessage, status: 'fail' });
+        }
+    };
+
+
+
+    const values = { createEvent, getUserEvent, event, createTicket, eventTicket, Ticket, updateEvents};
 
     return (
         <EventContext.Provider value={values}>
