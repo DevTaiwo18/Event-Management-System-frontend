@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { useEventContext } from '../context/eventContext';
 import { useAuthContext } from '../context/authContext';
 import moment from 'moment';
 
-const UpdateEventModal = ({ eventDetails, handleClose }) => {
+const UpdateEventModal = ({ eventDetails, handleClose, fetchEvents }) => {
     const { token } = useAuthContext();
     const { updateEvents } = useEventContext();
     const [updatedEvent, setUpdatedEvent] = useState(eventDetails);
+
+    useEffect(() => {
+        setUpdatedEvent(eventDetails);
+    }, [eventDetails]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -15,9 +19,14 @@ const UpdateEventModal = ({ eventDetails, handleClose }) => {
         setUpdatedEvent({ ...updatedEvent, [name]: formattedValue });
     };
 
-    const handleSubmit = () => {
-        updateEvents(updatedEvent._id, updatedEvent, token);
-        handleClose();
+    const handleSubmit = async () => {
+        try {
+            await updateEvents(updatedEvent._id, updatedEvent, token);
+            handleClose();
+            fetchEvents();
+        } catch (error) {
+            console.error('Error updating event:', error);
+        }
     };
 
     const handleInputClick = (e) => {
@@ -37,19 +46,19 @@ const UpdateEventModal = ({ eventDetails, handleClose }) => {
                     </Form.Group>
                     <Form.Group controlId="eventDate">
                         <Form.Label>Event Date</Form.Label>
-                        <Form.Control type="date" name="date" value={moment(updatedEvent.date).format('YYYY-MM-DD')} onChange={handleChange}  onClick={handleInputClick}/>
+                        <Form.Control type="date" name="date" value={moment(updatedEvent.date).format('YYYY-MM-DD')} onChange={handleChange} onClick={handleInputClick} />
                     </Form.Group>
                     <Form.Group controlId="eventLocation">
                         <Form.Label>Event Location</Form.Label>
-                        <Form.Control type="text" name="location" value={updatedEvent.location} onChange={handleChange}  onClick={handleInputClick}/>
+                        <Form.Control type="text" name="location" value={updatedEvent.location} onChange={handleChange} onClick={handleInputClick} />
                     </Form.Group>
                     <Form.Group controlId="eventVenue">
                         <Form.Label>Event Venue</Form.Label>
-                        <Form.Control type="text" name="venue" value={updatedEvent.venue} onChange={handleChange}  onClick={handleInputClick}/>
+                        <Form.Control type="text" name="venue" value={updatedEvent.venue} onChange={handleChange} onClick={handleInputClick} />
                     </Form.Group>
                     <Form.Group controlId="eventDescription">
                         <Form.Label>Event Description</Form.Label>
-                        <Form.Control as="textarea" rows={3} name="description" value={updatedEvent.description} onChange={handleChange}  onClick={handleInputClick}/>
+                        <Form.Control as="textarea" rows={3} name="description" value={updatedEvent.description} onChange={handleChange} onClick={handleInputClick} />
                     </Form.Group>
                 </Form>
             </Modal.Body>

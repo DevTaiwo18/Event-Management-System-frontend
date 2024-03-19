@@ -3,7 +3,7 @@ import { Modal, Button, Form } from 'react-bootstrap';
 import { useEventContext } from '../context/eventContext';
 import { useAuthContext } from '../context/authContext';
 
-const TicketUpdateModal = ({ ticket, onClose }) => {
+const TicketUpdateModal = ({ ticket, onClose, fetchTickets }) => {
     const [price, setPrice] = useState(ticket.price);
     const [sit, setSit] = useState(ticket.sit);
     const [isFree, setIsFree] = useState(ticket.price === 0);
@@ -13,7 +13,7 @@ const TicketUpdateModal = ({ ticket, onClose }) => {
     const { updateTicket } = useEventContext();
     const { token } = useAuthContext();
 
-    const handleUpdate = () => {
+    const handleUpdate = async () => {
         const updatedTicket = {
             price: isFree ? 0 : parseFloat(price),
             sit: parseInt(sit),
@@ -21,10 +21,18 @@ const TicketUpdateModal = ({ ticket, onClose }) => {
             bankAccount: isFree ? '' : bankAccount,
             bankHolderName: isFree ? '' : bankHolderName
         };
-        updateTicket(ticket._id, updatedTicket, token);
-        onClose();
+
+        try {
+            await updateTicket(ticket._id, updatedTicket, token);
+            onClose();
+            fetchTickets(ticket.eventId);
+        } catch (error) {
+
+        }
+
+
     };
-    
+
     return (
         <Modal show={true} onHide={onClose}>
             <Modal.Header closeButton>
@@ -33,14 +41,14 @@ const TicketUpdateModal = ({ ticket, onClose }) => {
             <Modal.Body>
                 <Form.Group controlId="formPrice">
                     <Form.Label>Price</Form.Label>
-                    <Form.Control 
-                        type="number" 
-                        value={isFree ? 0 : price} 
+                    <Form.Control
+                        type="number"
+                        value={isFree ? 0 : price}
                         onChange={(e) => {
                             setPrice(e.target.value);
                             setIsFree(parseFloat(e.target.value) === 0);
-                        }} 
-                        disabled={isFree} 
+                        }}
+                        disabled={isFree}
                     />
                 </Form.Group>
                 <Form.Group controlId="formSit">
@@ -51,26 +59,26 @@ const TicketUpdateModal = ({ ticket, onClose }) => {
                     <>
                         <Form.Group controlId="formBankName">
                             <Form.Label>Bank Name</Form.Label>
-                            <Form.Control 
-                                type="text" 
-                                value={bankName} 
-                                onChange={(e) => setBankName(e.target.value)} 
+                            <Form.Control
+                                type="text"
+                                value={bankName}
+                                onChange={(e) => setBankName(e.target.value)}
                             />
                         </Form.Group>
                         <Form.Group controlId="formBankAccount">
                             <Form.Label>Bank Account Number</Form.Label>
-                            <Form.Control 
-                                type="text" 
-                                value={bankAccount} 
-                                onChange={(e) => setBankAccount(e.target.value)} 
+                            <Form.Control
+                                type="text"
+                                value={bankAccount}
+                                onChange={(e) => setBankAccount(e.target.value)}
                             />
                         </Form.Group>
                         <Form.Group controlId="formBankHolderName">
                             <Form.Label>Bank Holder Name</Form.Label>
-                            <Form.Control 
-                                type="text" 
-                                value={bankHolderName} 
-                                onChange={(e) => setBankHolderName(e.target.value)} 
+                            <Form.Control
+                                type="text"
+                                value={bankHolderName}
+                                onChange={(e) => setBankHolderName(e.target.value)}
                             />
                         </Form.Group>
                     </>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, Spinner } from 'react-bootstrap';
 import moment from 'moment';
 import "./../styles/Manageevent.css";
@@ -13,7 +13,7 @@ const ManageEventsPage = () => {
     const [selectedEvent, setSelectedEvent] = useState(null);
     const [selectedTicket, setSelectedTicket] = useState(null);
     const [loading, setLoading] = useState(true);
-    const { getUserEvent, event, eventTicket, Ticket, deleteTicket, deleteEvent  } = useEventContext();
+    const { getUserEvent, event, eventTicket, Ticket, deleteTicket, deleteEvent } = useEventContext();
 
     useEffect(() => {
         fetchEvents();
@@ -27,11 +27,19 @@ const ManageEventsPage = () => {
             setLoading(false);
 
             event.forEach(eventItem => {
-                eventTicket(eventItem._id);
+                fetchTickets(eventItem._id);
             });
         } catch (error) {
             console.error('Error fetching events:', error);
             setLoading(false);
+        }
+    };
+
+    const fetchTickets = async (eventId) => {
+        try {
+            await eventTicket(eventId);
+        } catch (error) {
+            console.error('Error fetching tickets:', error);
         }
     };
 
@@ -127,14 +135,17 @@ const ManageEventsPage = () => {
                     <UpdateEventModal
                         eventDetails={selectedEvent}
                         handleClose={handleCloseModal}
+                        fetchEvents={fetchEvents}
                     />
                 )}
                 {selectedTicket && (
                     <TicketUpdateModal
                         ticket={selectedTicket}
                         onClose={handleCloseTicketUpdateModal}
+                        fetchTickets={fetchTickets}
                     />
                 )}
+
             </div>
         </div>
     );
