@@ -4,11 +4,10 @@ import { useEventContext } from '../context/eventContext';
 import { useAuthContext } from '../context/authContext';
 import moment from 'moment';
 
-const UpdateEventModal = ({ eventDetails }) => {
+const UpdateEventModal = ({ eventDetails, handleClose }) => {
     const { token } = useAuthContext();
     const { updateEvents } = useEventContext();
     const [updatedEvent, setUpdatedEvent] = useState(eventDetails);
-    const [showModal, setShowModal] = useState(true);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -18,15 +17,15 @@ const UpdateEventModal = ({ eventDetails }) => {
 
     const handleSubmit = () => {
         updateEvents(updatedEvent._id, updatedEvent, token);
-        setShowModal(false); 
+        handleClose();
     };
 
-    const handleClose = () => {
-        setShowModal(false);
+    const handleInputClick = (e) => {
+        e.stopPropagation();
     };
 
     return (
-        <Modal show={showModal} onHide={handleClose}>
+        <Modal show={true} onHide={handleClose} onClick={handleClose}>
             <Modal.Header closeButton>
                 <Modal.Title>Update Event</Modal.Title>
             </Modal.Header>
@@ -34,28 +33,28 @@ const UpdateEventModal = ({ eventDetails }) => {
                 <Form>
                     <Form.Group controlId="eventName">
                         <Form.Label>Event Name</Form.Label>
-                        <Form.Control type="text" name="name" value={updatedEvent.name} onChange={handleChange} />
+                        <Form.Control type="text" name="name" value={updatedEvent.name} onChange={handleChange} onClick={handleInputClick} />
                     </Form.Group>
                     <Form.Group controlId="eventDate">
                         <Form.Label>Event Date</Form.Label>
-                        <Form.Control type="date" name="date" value={moment(updatedEvent.date).format('YYYY-MM-DD')} onChange={handleChange} />
+                        <Form.Control type="date" name="date" value={moment(updatedEvent.date).format('YYYY-MM-DD')} onChange={handleChange}  onClick={handleInputClick}/>
                     </Form.Group>
                     <Form.Group controlId="eventLocation">
                         <Form.Label>Event Location</Form.Label>
-                        <Form.Control type="text" name="location" value={updatedEvent.location} onChange={handleChange} />
+                        <Form.Control type="text" name="location" value={updatedEvent.location} onChange={handleChange}  onClick={handleInputClick}/>
                     </Form.Group>
                     <Form.Group controlId="eventVenue">
                         <Form.Label>Event Venue</Form.Label>
-                        <Form.Control type="text" name="venue" value={updatedEvent.venue} onChange={handleChange} />
+                        <Form.Control type="text" name="venue" value={updatedEvent.venue} onChange={handleChange}  onClick={handleInputClick}/>
                     </Form.Group>
                     <Form.Group controlId="eventDescription">
                         <Form.Label>Event Description</Form.Label>
-                        <Form.Control as="textarea" rows={3} name="description" value={updatedEvent.description} onChange={handleChange} />
+                        <Form.Control as="textarea" rows={3} name="description" value={updatedEvent.description} onChange={handleChange}  onClick={handleInputClick}/>
                     </Form.Group>
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary"  style={buttonStyle} onClick={handleSubmit}>
+                <Button variant="secondary" style={buttonStyle} onClick={handleSubmit}>
                     Update
                 </Button>
             </Modal.Footer>
