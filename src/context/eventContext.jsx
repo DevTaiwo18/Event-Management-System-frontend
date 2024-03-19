@@ -99,8 +99,37 @@ const EventProvider = ({ children }) => {
         }
     }
 
+    const deleteTicket = async (ticketId, token) => {
+        try {
+            const response = await axios.delete(`${apiUrl}/event/deleteTicket/${ticketId}`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            setMessage({ content: response.data.message, status: response.data.status });
+        } catch (error) {
+            const errorMessage = error.response?.data?.message;
+            setMessage({ content: errorMessage, status: 'fail' });
+        }
+    }
 
-    const values = { createEvent, getUserEvent, event, createTicket, eventTicket, Ticket, updateEvents, updateTicket};
+    const deleteEvent = async (eventId, token) => {
+        try {
+            const response = await axios.delete(`${apiUrl}/event/${eventId}`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            setMessage({ content: response.data.message, status: response.data.status });
+        } catch (error) {
+            const errorMessage = error.response?.data?.message;
+            setMessage({ content: errorMessage, status: 'fail' });
+        }
+    }
+
+    const values = { createEvent, getUserEvent, event, createTicket, eventTicket, Ticket, updateEvents, updateTicket, deleteTicket, deleteEvent };
 
     return (
         <EventContext.Provider value={values}>
