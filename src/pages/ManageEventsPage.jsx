@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
-import { Card, Spinner, Modal, Button, Form } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Card, Spinner } from 'react-bootstrap';
 import moment from 'moment';
-import { useHistory } from 'react-router-dom';
 import "./../styles/Manageevent.css";
 import { useEventContext } from '../context/eventContext';
 import { useAuthContext } from '../context/authContext';
+import TicketUpdateModal from './../component/updateTicket';
 import UpdateEventModal from '../component/UpdateEventModal';
 
 const ManageEventsPage = () => {
     const { token } = useAuthContext();
     const [events, setEvents] = useState([]);
     const [selectedEvent, setSelectedEvent] = useState(null); 
-    const [selectedTicket, setSelectedTicket] = useState(null);
-    const [showModal, setShowModal] = useState(false);
+    const [selectedTicket, setSelectedTicket] = useState(null); 
     const [loading, setLoading] = useState(true); 
     const { getUserEvent, event, eventTicket, Ticket } = useEventContext();
-    const history = useHistory();
 
     useEffect(() => {
         fetchEvents();
@@ -45,25 +43,12 @@ const ManageEventsPage = () => {
         setSelectedEvent(null); 
     };
 
-    const handleOpenModal = (ticket) => {
-        setSelectedTicket(ticket);
-        setShowModal(true);
+    const handleOpenTicketUpdateModal = (ticket) => {
+        setSelectedTicket(ticket); 
     };
 
-    const handleUpdateTicket = (updatedTicket) => {
-        // Perform logic to update the ticket in your context or API
-        console.log('Updated ticket:', updatedTicket);
-
-        // Close the modal
-        setShowModal(false);
-    };
-
-    const handleCloseTicketModal = () => {
-        setShowModal(false);
-    };
-
-    const handleFinishUpdate = () => {
-        history.push('/manage-events');
+    const handleCloseTicketUpdateModal = () => {
+        setSelectedTicket(null);
     };
 
     return (
@@ -110,7 +95,7 @@ const ManageEventsPage = () => {
                                             )}
                                             <Card.Text>{`${ticket.sit} Tickets`}</Card.Text>
                                             <div className="d-flex align-items-center justify-content-center gap-3">
-                                                <button className="manage-update-ticket-button" onClick={() => handleOpenModal(ticket)}>Update</button>
+                                                <button className="manage-update-ticket-button" onClick={() => handleOpenTicketUpdateModal(ticket)}>Update</button>
                                                 <button className="manage-delete-ticket-button">Delete</button>
                                             </div>
                                         </Card.Body>
@@ -124,14 +109,12 @@ const ManageEventsPage = () => {
                     <UpdateEventModal
                         eventDetails={selectedEvent}
                         handleClose={handleCloseModal}
-                        onFinishUpdate={handleFinishUpdate}
                     />
                 )}
-                {showModal && selectedTicket && (
+                {selectedTicket && ( 
                     <TicketUpdateModal
                         ticket={selectedTicket}
-                        onUpdate={handleUpdateTicket}
-                        onClose={handleCloseTicketModal}
+                        onClose={handleCloseTicketUpdateModal}
                     />
                 )}
             </div>
