@@ -1,0 +1,57 @@
+.box {
+    background-color: rgb(248,248,248); 
+    transition: background-color 0.3s ease; 
+    padding: 38px 58px;
+    border-radius: 5px;
+}
+
+.box:hover {
+    background-color: rgb(245, 68, 126); 
+    color: white;
+}
+
+.box .icon{
+    font-size: 40px;
+    color: rgb(245, 68, 126);
+    margin-bottom: 10px;
+}
+
+.box:hover .icon {
+    color: white; 
+}
+
+.box p{
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    color:#666666;
+}
+
+.box:hover p {
+    color: white; 
+}
+
+.box span{
+    padding: 2px 15px;
+    border-radius: 10px;
+    background-color: rgb(238,238,238); 
+    font-size: 13px;
+    line-height: 22px;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    color:#666666;
+}
+
+.box:hover span{
+    background-color:rgb(235,61,118); 
+    color: white;
+} 
+
+@media (max-width: 375px) {
+    .box{
+        width: 100%;
+    }
+}

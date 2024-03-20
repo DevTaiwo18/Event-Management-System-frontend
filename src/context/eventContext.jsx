@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 import axios from "axios";
 import Message from "../component/Message";
-import { useNavigate } from "react-router-dom";
 
 const EventContext = createContext();
 
@@ -9,7 +8,6 @@ export const useEventContext = () => useContext(EventContext);
 
 const EventProvider = ({ children }) => {
     const apiUrl = import.meta.env.VITE_apiUrl;
-    const navigate = useNavigate()
     const [message, setMessage] = useState({ content: "", status: "" });
     const [event, setEvent] = useState();
     const [Ticket, setTicket] = useState();
@@ -129,7 +127,17 @@ const EventProvider = ({ children }) => {
         }
     }
 
-    const values = { createEvent, getUserEvent, event, createTicket, eventTicket, Ticket, updateEvents, updateTicket, deleteTicket, deleteEvent };
+    const getLength = async () => {
+        try {
+            const response = await axios.get(`${apiUrl}/event/categories/length`);
+            return response.data.categories; 
+        } catch (error) {
+            const errorMessage = error.response?.data?.message;
+            setMessage({ content: errorMessage, status: 'fail' });
+        }
+    };
+
+    const values = { createEvent, getUserEvent, event, createTicket, eventTicket, Ticket, updateEvents, updateTicket, deleteTicket, deleteEvent, getLength};
 
     return (
         <EventContext.Provider value={values}>
