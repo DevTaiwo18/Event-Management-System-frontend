@@ -11,7 +11,6 @@ const EventProvider = ({ children }) => {
     const [message, setMessage] = useState({ content: "", status: "" });
     const [event, setEvent] = useState();
     const [Ticket, setTicket] = useState();
-
     const createEvent = async (formData, token) => {
         try {
             const response = await axios.post(`${apiUrl}/event/createEvent`, formData, {
@@ -130,14 +129,42 @@ const EventProvider = ({ children }) => {
     const getLength = async () => {
         try {
             const response = await axios.get(`${apiUrl}/event/categories/length`);
-            return response.data.categories; 
+            return response.data.categories;
         } catch (error) {
             const errorMessage = error.response?.data?.message;
             setMessage({ content: errorMessage, status: 'fail' });
         }
     };
 
-    const values = { createEvent, getUserEvent, event, createTicket, eventTicket, Ticket, updateEvents, updateTicket, deleteTicket, deleteEvent, getLength};
+    const getFeatures = async () => {
+        try {
+            const response = await axios.get(`${apiUrl}/event/events/featured`);
+            return response.data.events;
+        } catch (error) {
+            const errorMessage = error.response?.data?.message;
+            setMessage({ content: errorMessage, status: 'fail' });
+        }
+    }
+
+    const getLengthVenue = async () => {
+        try {
+            const response = await axios.get(`${apiUrl}/event/event/usereventvenues`);
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching statistics:', error);
+        }
+    };
+
+    const getAllTheEvents = async () => {
+        try {
+            const response = await axios.get(`${apiUrl}/event/getEvent`);
+            return response.data.events;
+        } catch (error) {
+            console.error('Error fetching statistics:', error);
+        }
+    }
+
+    const values = { createEvent, getUserEvent, event, createTicket, eventTicket, Ticket, updateEvents, updateTicket, deleteTicket, deleteEvent, getLength, getFeatures, getLengthVenue , getAllTheEvents};
 
     return (
         <EventContext.Provider value={values}>

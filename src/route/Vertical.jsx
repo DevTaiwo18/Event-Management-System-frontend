@@ -32,7 +32,7 @@ const Vertical = () => {
         <div>
             {user && <header className='Header shadow-lg'>
                 <Link className='a' to={'/horizontal/'}>
-                    <div className="left">
+                    <div className="lefet">
                         <img src="/footerlogo.png" alt="" />
                     </div>
                 </Link>

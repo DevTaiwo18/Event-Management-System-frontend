@@ -1,0 +1,210 @@
+* {
+    padding: 0;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.Eventcard {
+    border: 1px solid #ccc;
+    width: 27.5%;
+    border-radius: 8px;
+    text-align: justify;
+    cursor: pointer;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.eventimagetop {
+    width: 100%;
+}
+
+.eventimagetop img {
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.eventtext {
+    padding: 30px 10px 20px;
+
+}
+
+.eventtext h4 {
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    color: #242b46;
+    line-height: 24px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+
+.eventtext h4:hover {
+    color: #f53f7b;
+}
+
+.eventtext .eventcardD {
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    color: #666666;
+    line-height: 24px;
+    padding-bottom: 10px;
+}
+
+.Links {
+    text-decoration: none;
+}
+
+.eventf {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.eventf img {
+    padding-bottom: 8px;
+}
+
+.eventf .location {
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    color: #232526;
+    line-height: 24px;
+}
+
+.eventcardbottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.eventcardbottom h5 {
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    color: #242b46;
+    line-height: 24px;
+}
+
+.eventcardbottom .eventcardprice {
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    color: #f53f7b;
+    line-height: 24px;
+}
+
+.eventcardbottom h5:hover {
+    color: #f53f7b;
+}
+
+.date {
+    position: absolute;
+    top: 180px;
+    left: 10px;
+    width: 4.5rem;
+    height: 4.5rem;
+    background-color: #f53f7b;
+    text-align: center;
+    border-radius: 50%;
+    display: block;
+    list-style: 0;
+    padding-top: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.eventmoth{
+    line-height: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+}
+
+.eventcarddate{
+    line-height: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+}
+
+.Eventcard:hover .overlay {
+    background-color: rgba(0, 0, 0, 0.075);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px; 
+    pointer-events: none; 
+    z-index: 1;
+}
+
+.Eventcard:hover .date {
+    background-color: #ff6b81; 
+}
+
+@media (max-width: 1024px) {
+    .Eventcard {
+        border: 1px solid #ccc;
+        width: 45%;
+        border-radius: 8px;
+        text-align: justify;
+        cursor: pointer;
+        position: relative;
+        transition: box-shadow 0.3s ease;
+    }
+    .date {
+        position: absolute;
+        top: 160px;
+        left: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .Eventcard {
+        border: 1px solid #ccc;
+        width: 100%;
+        border-radius: 8px;
+        text-align: justify;
+        cursor: pointer;
+        position: relative;
+        transition: box-shadow 0.3s ease;
+    }
+    .date {
+        position: absolute;
+        top: 200px;
+        left: 10px;
+    }
+
+}
+
+@media (max-width: 400px) {
+    .date {
+        position: absolute;
+        top: 160px;
+        left: 10px;
+    }
+    
+}
+
+@media (max-width: 350px) {
+    .date {
+        position: absolute;
+        top: 130px;
+        left: 10px;
+    }
+    
+}

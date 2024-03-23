@@ -24,11 +24,12 @@ const ManageEventsPage = () => {
             setLoading(true);
             await getUserEvent(token);
             setEvents(event || []);
-            setLoading(false);
 
-            event.forEach(eventItem => {
-                fetchTickets(eventItem._id);
-            });
+            // Fetch tickets for each event
+            const fetchTicketsPromises = events.map(eventItem => fetchTickets(eventItem._id));
+            await Promise.all(fetchTicketsPromises);
+
+            setLoading(false);
         } catch (error) {
             console.error('Error fetching events:', error);
             setLoading(false);
@@ -88,7 +89,7 @@ const ManageEventsPage = () => {
             )}
             <div className="manage-events-page shadow-lg">
                 <h1>Manage Events</h1>
-                {Ticket && Ticket.length > 0 && events.map((eventItem, index) => (
+                {events.length > 0 && Ticket && Ticket.length > 0 && events.map((eventItem, index) => (
                     <div key={index} className="manage-event-card">
                         <div className="manage-event-details">
                             <img src={eventItem.image} alt={eventItem.name} className="manage-event-image" />

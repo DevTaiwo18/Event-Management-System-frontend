@@ -6,6 +6,7 @@ import Vertical from './route/Vertical';
 import Landingpage from './route/Landingpage';
 import EventProvider from './context/eventContext';
 import UserProvider from './context/userContext';
+import ScrollToTopOnMount from './component/ScrollToTopMount'; 
 
 function App() {
     const [token, setToken] = useState('');
@@ -22,6 +23,7 @@ function App() {
             <AuthProvider>
                 <UserProvider>
                     <EventProvider>
+                        <ScrollToTopOnMount /> 
                         <Routes>
                             <Route path='/' element={<Landingpage />} />
                             <Route path="/horizontal/*" element={<Horizontal />} />

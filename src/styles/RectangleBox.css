@@ -1,0 +1,85 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.RectangleBox {
+    border: 1px solid #ccc;
+    padding: 20px 40px 20px 20px;
+    background: rgb(250, 250, 250);
+    border-radius: 4px;
+    text-align: justify;
+    transition: transform 0.3s, background-color 0.3s;
+    cursor: pointer;
+}
+
+.RectangleBox:hover {
+    background: #fff;
+    transform: scale(1.09);
+    cursor: pointer;
+}
+
+
+#textp {
+    padding-left: 48px;
+    word-spacing: 0;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+}
+
+.textss {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.textss h4 {
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    color: #000;
+    line-height: 15px;
+    margin-bottom: 0;
+    transition: all 0.5s; 
+}
+
+.textss h4:hover {
+    color: #f53f7b;
+}
+
+.radius {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(72, 98, 196);
+}
+
+.radius p {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+    line-height: 1;
+}
+
+@media (max-width: 500px) {
+    .RectangleBox {
+        padding: 20px 30px 20px 20px;
+    }
+
+    #textp {
+        padding-left: 48px;
+        font-size: 12px;
+    }
+
+}
