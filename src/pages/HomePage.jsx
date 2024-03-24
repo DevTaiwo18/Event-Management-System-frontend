@@ -227,19 +227,15 @@ const HomePage = () => {
       </div>
 
       <div className="displayAllEvent">
-        <h3 className='images-title'>LASTEST EVENTS</h3>
-
+        <h3 className='sect-title'>LATEST EVENTS</h3>
         <div className="carosel">
           {allEvents && allEvents.length > 0 && (
-            allEvents.slice(0, 6).map(event => {
+            allEvents.slice().reverse().slice(0, 3).map(event => (
               <EventsCardss key={event._id} event={event} />
-            })
-          )
-          }
+            ))
+          )}
         </div>
       </div>
-
-
 
     </div>
   );

@@ -61,6 +61,7 @@
     gap: 20px;
 }
 
+.manage-show-ticket-button,
 .manage-update-button,
 .manage-delete-button {
     padding: 6px 12px;
@@ -74,6 +75,7 @@
     font-family: "Poppins", sans-serif;
 }
 
+.manage-show-ticket-button:hover,
 .manage-delete-button:hover,
 .manage-update-button:hover {
     background-color: #f53f7b;

@@ -4,14 +4,14 @@
     box-sizing: border-box;
 }
 
-.Eventcard {
-    border: 1px solid #ccc;
+.Eventcards {
     width: 27.5%;
     border-radius: 8px;
     text-align: justify;
     cursor: pointer;
     position: relative;
     transition: box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .eventimagetop {
@@ -24,12 +24,13 @@
     border-top-right-radius: 8px;
 }
 
-.eventtext {
+.eventtexts {
     padding: 30px 10px 20px;
+    text-align: center;
 
 }
 
-.eventtext h4 {
+.eventtexts h4 {
     font-size: 16px;
     font-weight: 600;
     font-style: normal;
@@ -40,11 +41,11 @@
     padding-top: 20px;
 }
 
-.eventtext h4:hover {
+.eventtexts h4:hover {
     color: #f53f7b;
 }
 
-.eventtext .eventcardD {
+.eventtexts .eventcardD {
     font-size: 14px;
     font-weight: 400;
     font-style: normal;
@@ -77,7 +78,7 @@
     line-height: 24px;
 }
 
-.eventcardbottom {
+.eventcardbottoms {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -85,16 +86,16 @@
     border-top: 1px solid #ccc;
 }
 
-.eventcardbottom h5 {
+.eventcardbottoms h5 {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 400;
     font-style: normal;
     font-family: "Poppins", sans-serif;
     color: #242b46;
     line-height: 24px;
 }
 
-.eventcardbottom .eventcardprice {
+.eventcardbottoms .eventcardprice {
     font-size: 14px;
     font-weight: 600;
     font-style: normal;
@@ -103,26 +104,34 @@
     line-height: 24px;
 }
 
-.eventcardbottom h5:hover {
+.eventcardbottoms h5:hover {
     color: #f53f7b;
 }
 
-.date {
+.dates {
     position: absolute;
     top: 180px;
-    left: 10px;
+    left: 36%;
     width: 4.5rem;
     height: 4.5rem;
     background-color: #f53f7b;
     text-align: center;
     border-radius: 50%;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     list-style: 0;
     padding-top: 18px;
     transition: background-color 0.3s ease;
 }
 
-.eventmoth{
+.gallery{
+    font-size: 18px;
+    color: #ffffff;
+    padding-bottom: 20px;
+}
+
+.eventmoth {
     line-height: 10px;
     font-size: 14px;
     font-weight: 600;
@@ -131,7 +140,7 @@
     color: #ffffff;
 }
 
-.eventcarddate{
+.eventcarddate {
     line-height: 10px;
     font-size: 14px;
     font-weight: 600;
@@ -140,24 +149,12 @@
     color: #ffffff;
 }
 
-.Eventcard:hover .overlay {
-    background-color: rgba(0, 0, 0, 0.075);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px; 
-    pointer-events: none; 
-    z-index: 1;
-}
-
-.Eventcard:hover .date {
-    background-color: #ff6b81; 
+.Eventcards:hover .dates {
+    background-color: rgb(72,98,196);
 }
 
 @media (max-width: 1024px) {
-    .Eventcard {
+    .Eventcards{
         border: 1px solid #ccc;
         width: 45%;
         border-radius: 8px;
@@ -166,15 +163,16 @@
         position: relative;
         transition: box-shadow 0.3s ease;
     }
-    .date {
+
+    .dates {
         position: absolute;
         top: 160px;
-        left: 10px;
+        left: 36%;
     }
 }
 
 @media (max-width: 767px) {
-    .Eventcard {
+    .Eventcards {
         border: 1px solid #ccc;
         width: 100%;
         border-radius: 8px;
@@ -183,28 +181,29 @@
         position: relative;
         transition: box-shadow 0.3s ease;
     }
-    .date {
+
+    .dates {
         position: absolute;
         top: 200px;
-        left: 10px;
+        left: 40%;
     }
 
 }
 
 @media (max-width: 400px) {
-    .date {
+    .dates {
         position: absolute;
-        top: 160px;
-        left: 10px;
+        top: 170px;
+        left: 42%;
     }
-    
+
 }
 
 @media (max-width: 350px) {
-    .date {
+    .dates {
         position: absolute;
-        top: 130px;
-        left: 10px;
+        top: 140px;
+        left: 40%;
     }
-    
+
 }

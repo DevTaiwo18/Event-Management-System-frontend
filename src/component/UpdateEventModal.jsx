@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { useEventContext } from '../context/eventContext';
+import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../context/authContext';
 import moment from 'moment';
 
 const UpdateEventModal = ({ eventDetails, handleClose, fetchEvents }) => {
     const { token } = useAuthContext();
     const { updateEvents } = useEventContext();
+    const navigate = useNavigate();
     const [updatedEvent, setUpdatedEvent] = useState(eventDetails);
 
     useEffect(() => {
@@ -22,19 +24,20 @@ const UpdateEventModal = ({ eventDetails, handleClose, fetchEvents }) => {
     const handleSubmit = async () => {
         try {
             await updateEvents(updatedEvent._id, updatedEvent, token);
-            handleClose();
-            fetchEvents();
+            handleClose(); 
+            navigate("/vertical/createTicket")
         } catch (error) {
             console.error('Error updating event:', error);
         }
     };
+    
 
     const handleInputClick = (e) => {
         e.stopPropagation();
     };
 
     return (
-        <Modal show={true} onHide={handleClose} onClick={handleClose}>
+        <Modal show={true} onHide={handleClose}>
             <Modal.Header closeButton>
                 <Modal.Title>Update Event</Modal.Title>
             </Modal.Header>

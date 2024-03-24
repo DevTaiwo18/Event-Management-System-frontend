@@ -164,7 +164,18 @@ const EventProvider = ({ children }) => {
         }
     }
 
-    const values = { createEvent, getUserEvent, event, createTicket, eventTicket, Ticket, updateEvents, updateTicket, deleteTicket, deleteEvent, getLength, getFeatures, getLengthVenue , getAllTheEvents};
+    const getCategoryEvents = async (category) => {
+        try {
+            const response = await axios.get(`${apiUrl}/event/category/${category}`);
+           return response.data.events
+        } catch (error) {
+            const errorMessage = error.response?.data?.message;
+            console.log(errorMessage);
+            setMessage({ content: errorMessage, status: 'fail' });
+        }
+    }
+
+    const values = { createEvent, getUserEvent, event, createTicket, eventTicket, Ticket, updateEvents, updateTicket, deleteTicket, deleteEvent, getLength, getFeatures, getLengthVenue , getAllTheEvents, getCategoryEvents};
 
     return (
         <EventContext.Provider value={values}>

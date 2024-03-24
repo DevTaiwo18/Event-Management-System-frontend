@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: rgb(242,242,242);
+}
+
 .backgroundImage {
     height: 100vh;
     width: 100%;
@@ -483,6 +487,29 @@
     text-align: center;
 }
 
+.carosel{
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-bottom: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.category {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 10px;
+    padding-right: 50px;
+    background-color: rgb(242, 242, 242);
+  }
+
 
 @media (max-width: 1326px) {
     .backgroundImage {
@@ -525,8 +552,8 @@
         gap: 1rem;
         padding-bottom: 50px;
         flex-wrap: wrap;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     .displayCapcity {
@@ -573,6 +600,35 @@
 
     .displayCapcity {
         margin-top: 30px;
+    }
+
+    .carosel{
+        display: flex;
+        padding-top: 0px;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        padding-bottom: 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .displayAllEvent{
+        padding-top: 0px;
+        padding-bottom: 10x;
+        text-align: center;
+    }
+
+    .category{
+        display: flex;
+        padding-top: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        padding-bottom: 50px;
+        padding-left: 10px;
+        background-color: rgb(242,242,242);
+        padding-right: 10px;
     }
 
 }

@@ -16,37 +16,32 @@ const EventsCardss = ({ event }) => {
         event
     })
 
-    const shortDescription = event.description.split(' ').slice(0, 14).join(' ');
+    const shortDescription = event.description.split(' ').slice(0, 25).join(' ');
     const eventDate = new Date(event.date);
-    const formattedDate = `${eventDate.getDate()}-${eventDate.toLocaleString('default', { month: 'short' })}-${eventDate.getFullYear()}`;
+    const formattedDate = `${eventDate.toLocaleString('default', { month: 'short' })} ${eventDate.getDate()}, ${eventDate.getFullYear()}`;
 
     return (
-        <div className='Eventcard'>
+        <div className='Eventcards shadow-md'>
             <Link className='Links' to={`/event/${event._id}`}>
                 <div className="eventimagetop">
                     <img src={event.image} alt={event.name} />
                 </div>
             </Link>
             <div className="blur-container">
-                <div className="eventtext">
+                <div className="eventtexts">
                     <Link className='Links' to={`/event/${event._id}`}>
                         <h4>{event.name}</h4>
                     </Link>
                     <p className='eventcardD'>{shortDescription}...</p>
-                    <div className="eventf">
-                        <img src="/public/location-2955.png" alt="" />
-                        <p className='location'>{event.location}...</p>
-                    </div>
                 </div>
-                <div className="eventcardbottom">
+                <div className="eventcardbottoms">
                     <Link to={`/event/${event.id}`} className='Links'>
-                        <h5>Get Ticket</h5>
+                        <h5>{formattedDate}</h5>
                     </Link>
                     <p className="eventcardprice">{event.price}</p>
                 </div>
-                <div className="date">
-                    <p className="eventmoth">{eventDate.toLocaleString('default', { month: 'short' })}</p>
-                    <p className="eventcarddate">{formattedDate.split('-').slice(0, 1).join('-')}-{formattedDate.split('-').slice(2).join('-')}</p>
+                <div className="dates">
+                    <i className="fa-solid fa-image gallery"></i>
                 </div>
             </div>
             <div className="overlay"></div>
