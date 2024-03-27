@@ -7,7 +7,7 @@ import moment from 'moment';
 
 const UpdateEventModal = ({ eventDetails, handleClose, fetchEvents }) => {
     const { token } = useAuthContext();
-    const { updateEvents } = useEventContext();
+    const { updateEvents, getSingle } = useEventContext();
     const navigate = useNavigate();
     const [updatedEvent, setUpdatedEvent] = useState(eventDetails);
 
@@ -23,14 +23,20 @@ const UpdateEventModal = ({ eventDetails, handleClose, fetchEvents }) => {
 
     const handleSubmit = async () => {
         try {
-            await updateEvents(updatedEvent._id, updatedEvent, token);
-            handleClose(); 
-            navigate("/vertical/createTicket")
+            const updated = await updateEvents(updatedEvent._id, updatedEvent, token);
+            if (updated) {
+                handleClose();
+                navigate('/vertical/createTicket');
+                setTimeout(() => {
+                    navigate('/vertical/manageevent', { replace: true });
+                }, 10); 
+            }   else {
+                console.error('Failed to update event');
+            }
         } catch (error) {
             console.error('Error updating event:', error);
         }
     };
-    
 
     const handleInputClick = (e) => {
         e.stopPropagation();
@@ -77,6 +83,7 @@ const UpdateEventModal = ({ eventDetails, handleClose, fetchEvents }) => {
 const buttonStyle = {
     padding: '6px 12px',
     backgroundColor: '#f53f7b',
+
     color: 'white',
     border: 'none',
     borderRadius: '4px',

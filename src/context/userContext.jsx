@@ -13,8 +13,8 @@ const UserProvider = ({ children }) => {
     const [user, setUser] = useState({});
     const [message, setMessage] = useState({ content: "", status: "" });
 
-    
-    const changepassword = async (formData, token) =>{
+
+    const changepassword = async (formData, token) => {
         try {
             const response = await axios.patch(`${apiUrl}/user/changepassword`, formData, {
                 headers: {
@@ -33,7 +33,7 @@ const UserProvider = ({ children }) => {
 
     const editusername = async (formData, token) => {
         try {
-            const response = await axios.patch(`${apiUrl}/user/profile`, formData,{
+            const response = await axios.patch(`${apiUrl}/user/profile`, formData, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
@@ -49,8 +49,70 @@ const UserProvider = ({ children }) => {
         }
     }
 
+    const registerForevent = async (formData, token) => {
+        try {
+            const response = await axios.post(`${apiUrl}/user/registerforevent`, formData, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            return response.data;
+        } catch (error) {
+            const errorMessage = error.response?.data?.message;
+            setMessage({ content: errorMessage, status: 'fail' });
+        }
+    }
 
-    const values = { changepassword, editusername };
+    const getMyregisteredEvents = async (token) => {
+        try {
+            const response = await axios.get(`${apiUrl}/user/myregister-event`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            return response.data;
+        } catch (error) {
+            const errorMessage = error.response?.data?.message;
+            setMessage({ content: errorMessage, status: 'fail' });
+        }
+    }
+
+    
+    const transaction  = async (token) => {
+        try {
+            const response = await axios.get(`${apiUrl}/user/my-transactions`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            return response.data;
+        } catch (error) {
+            const errorMessage = error.response?.data?.message;
+            setMessage({ content: errorMessage, status: 'fail' });
+        }
+    }
+
+    const getUserRegisterformyevent = async (eventId, token) => {
+        console.log(eventId, token);
+        try {
+            const response = await axios.get(`${apiUrl}/user/Userregisteringformyevent/${eventId}`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            console.log(response.data);         
+            return response.data.userRegistrations;
+        } catch (error) {
+            const errorMessage = error.response?.data?.message;
+            setMessage({ content: errorMessage, status: 'fail' });
+        }
+    }
+
+    const values = { changepassword, editusername, registerForevent , getMyregisteredEvents, transaction,getUserRegisterformyevent };
 
     return (
         <UserContext.Provider value={values}>

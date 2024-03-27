@@ -23,7 +23,10 @@ const NavigationMenu = ({ className }) => {
           <li><i className="fa-solid fa-registered"></i>Manage Registration</li>
         </Link>
         <Link className='a' to="/vertical/transaction">
-          <li><i className="fa-solid fa-money-bill-transfer"></i>Transaction</li>
+          <li><i className="fa-solid fa-registered"></i>Transaction</li>
+        </Link>
+        <Link className='a' to="/vertical/joinevent">
+          <li><i className="fa-solid fa-money-bill-transfer"></i>Joined Event</li>
         </Link>
       </ul>
       <ul>

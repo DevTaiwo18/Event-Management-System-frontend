@@ -35,6 +35,7 @@ const EventProvider = ({ children }) => {
                 }
             });
             setEvent(response.data.events);
+            return response.data
         } catch (error) {
             const errorMessage = error.response?.data?.message;
             setMessage({ content: errorMessage, status: 'fail' });
@@ -60,6 +61,7 @@ const EventProvider = ({ children }) => {
         try {
             const response = await axios.get(`${apiUrl}/event/getTicket/${eventId}`);
             setTicket(response.data.tickets);
+            return response.data.tickets;
         } catch (error) {
             const errorMessage = error.response?.data?.message;
             setMessage({ content: errorMessage, status: 'fail' });
@@ -75,6 +77,7 @@ const EventProvider = ({ children }) => {
                 }
             });
             setMessage({ content: response.data.message, status: response.data.status });
+            return response.data.event;
         } catch (error) {
             const errorMessage = error.response?.data?.message;
             setMessage({ content: errorMessage, status: 'fail' });
@@ -175,7 +178,32 @@ const EventProvider = ({ children }) => {
         }
     }
 
-    const values = { createEvent, getUserEvent, event, createTicket, eventTicket, Ticket, updateEvents, updateTicket, deleteTicket, deleteEvent, getLength, getFeatures, getLengthVenue , getAllTheEvents, getCategoryEvents};
+    const search = async (name, category, time) => {
+        try {
+            const response = await fetch(`${apiUrl}/event/search/${name}/${category}/${time}`);
+            const data = await response.json(); 
+            console.log(data.events);
+            return data.events;
+    
+        } catch (error) {
+            const errorMessage = error.response?.data?.message;
+            console.log(errorMessage);
+            setMessage({ content: errorMessage, status: 'fail' });
+        }
+    }
+
+    const getSingle = async (eventId) => {
+        try {
+            const response = await axios.get(`${apiUrl}/event/${eventId}`);
+            return response.data.event;
+        } catch (error) {
+            const errorMessage = error.response?.data?.message;
+            setMessage({ content: errorMessage, status: 'fail' });
+        }
+    }
+    
+
+    const values = { createEvent, getUserEvent, event, createTicket, eventTicket, Ticket, updateEvents, updateTicket, deleteTicket, deleteEvent, getLength, getFeatures, getLengthVenue , getAllTheEvents, getCategoryEvents, search, getSingle};
 
     return (
         <EventContext.Provider value={values}>

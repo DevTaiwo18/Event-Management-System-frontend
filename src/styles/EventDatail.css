@@ -1,0 +1,260 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.detailsevent{
+    width: 85%;
+    margin: auto;
+    margin-top: -90px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.eventdatailpimg{
+    width: 65%;
+    padding: 25px;
+    background: rgb(255,255,255);
+}
+
+.eventdatailpimg img{
+    width: 100%;
+    padding-bottom: 25px;
+}
+
+.eventdatailpimg p{
+    font-size: 14px;
+    font-weight: 400;
+    color: #242b46;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    padding-bottom: 20px;
+}
+
+.locationandmap{
+    margin-top: 170px;
+    width: 30%;
+    padding: 25px;
+    background: rgb(255,255,255);
+}
+
+.locationandmaptilte{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    text-align: justify;
+}
+
+.locationandmaptilte h3{
+    font-size: 18px;
+    font-weight: 400;
+    color: #242b46;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    line-height: 24px;
+}
+
+.locationandmaptilte .event-detail-icon{
+    font-size: 18px;
+    font-weight: 200;
+    color: #242b46;
+    line-height: 18px;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    padding-bottom: 10px;
+}
+
+.locationandmapflex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    text-align: justify;
+}
+
+.locationandmapflex h4{
+    font-size: 14px;
+    font-weight: 500;
+    color: #242b46;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    line-height: 24px;
+    text-align: justify;
+}
+
+.locationandmapflex p{
+    font-size: 12px;
+    font-weight: 400;
+    color: #242b46;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    line-height: 24px;
+    text-align: justify;
+}
+
+.locationandmaph4{
+    font-size: 14px;
+    font-weight: 700;
+    color: #242b46;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    line-height: 24px;
+    text-align: justify;
+}
+
+.ticketdisplay{
+    width: 85%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 25px;
+    background: rgb(255,255,255);
+}
+
+.ticketdisplayh4{
+    font-size: 14px;
+    font-weight: 700;
+    color: #242b46;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    line-height: 24px;
+    text-align: justify;
+}
+
+.ticketshow{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.ticketbody{
+    border: 1px solid #ccc;
+    width: 200px;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.ticketbody .ticketbodybtn{
+    padding: 10px;
+    background-color: #000;
+    color: white;
+    text-align: center;
+    border: 1px solid #000;
+    width: 100%;
+    border-radius: 0 !important;
+}
+
+.ticketbody .ticketbodyImg{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.ticketbody .ticketbodyh4{
+    font-size: 25px;
+    font-weight: 600;
+    font-style: normal;
+    color: #000000;
+    line-height: 8px;
+    font-family: "Poppins", sans-serif;
+}
+
+.ticketbodyp{
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    color: #8c8c8c;
+    line-height: 24px;
+    font-family: "Poppins", sans-serif;
+    padding-bottom: 40px;
+}
+
+.registerforevent {
+    padding: 10px 15px;
+    background-color: transparent;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid #8c8c8c;
+    border-radius: 0 !important;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.registerforevent:hover {
+    color: white;
+    background-color: rgb(72, 98, 196);
+}
+
+.register{
+    padding: 6px 12px;
+    background-color: #f53f7b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    margin-top: 10px;
+}
+
+.register:hover{
+    background-color: #f53f7b;
+}
+
+.registermodal{
+    margin-top: 120px;
+}
+
+@media (max-width: 1000px) {
+    .detailsevent{
+        width: 100%;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        display: block;
+        padding: 20px;
+        justify-content: space-between;
+    }
+    .eventdatailpimg{
+        width: 100%;
+        padding: 25px;
+        background: rgb(255,255,255);
+    }
+    .locationandmap{
+        margin-top: 20px;
+        width: 100%;
+        padding: 25px;
+        background: rgb(255,255,255);
+    }
+}
+
+@media (max-width: 767px) {
+    .detailsevent{
+        width: 100%;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        display: block;
+        padding: 10px;
+        justify-content: space-between;
+    }
+    .eventdatailpimg{
+        width: 100%;
+        padding: 10px;
+        background: rgb(255,255,255);
+    }
+    .locationandmap{
+        margin-top: 20px;
+        width: 100%;
+        padding: 10px;
+        background: rgb(255,255,255);
+    }
+}

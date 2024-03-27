@@ -22,14 +22,14 @@ const EventCard = ({ event }) => {
 
   return (
     <div className='Eventcard'>
-      <Link className='Links' to={`/event/${event._id}`}>
+      <Link className='Links' to={`/horizontal/event/${event._id}`}>
         <div className="eventimagetop">
           <img src={event.image} alt={event.name} />
         </div>
       </Link>
       <div className="blur-container">
         <div className="eventtext">
-          <Link className='Links' to={`/event/${event._id}`}>
+          <Link className='Links' to={`/horizontal/event/${event._id}`}>
             <h4>{event.name}</h4>
           </Link>
           <p className='eventcardD'>{shortDescription}...</p>
@@ -39,7 +39,7 @@ const EventCard = ({ event }) => {
           </div>
         </div>
         <div className="eventcardbottom">
-          <Link to={`/event/${event.id}`} className='Links'>
+          <Link to={`/horizontal/event/${event.id}`} className='Links'>
             <h5>Get Ticket</h5>
           </Link>
           <p className="eventcardprice">{event.price}</p>

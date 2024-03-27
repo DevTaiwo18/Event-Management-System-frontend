@@ -22,20 +22,20 @@ const EventsCardss = ({ event }) => {
 
     return (
         <div className='Eventcards shadow-md'>
-            <Link className='Links' to={`/event/${event._id}`}>
+            <Link className='Links' to={`/horizontal/event/${event._id}`}>
                 <div className="eventimagetop">
                     <img src={event.image} alt={event.name} />
                 </div>
             </Link>
             <div className="blur-container">
                 <div className="eventtexts">
-                    <Link className='Links' to={`/event/${event._id}`}>
+                    <Link className='Links' to={`/horizontal/event/${event._id}`}>
                         <h4>{event.name}</h4>
                     </Link>
                     <p className='eventcardD'>{shortDescription}...</p>
                 </div>
                 <div className="eventcardbottoms">
-                    <Link to={`/event/${event.id}`} className='Links'>
+                    <Link to={`/horizontal/event/${event.id}`} className='Links'>
                         <h5>{formattedDate}</h5>
                     </Link>
                     <p className="eventcardprice">{event.price}</p>

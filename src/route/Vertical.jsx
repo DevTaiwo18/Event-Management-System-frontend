@@ -12,6 +12,7 @@ import "./../styles/Vertical.css";
 import NavigationMenu from '../component/NavigationMenu';
 import CreateTicket from '../pages/CreateTicket';
 import { useAuthContext } from '../context/authContext';
+import JoinEvent from '../pages/JoinEvent';
 
 const Vertical = () => {
 
@@ -59,6 +60,7 @@ const Vertical = () => {
                             <Route path='/manageevent' element={<ManageEventsPage />} />
                             <Route path='/manageregistration' element={<ManageRegistrationsPage />} />
                             <Route path='/transaction' element={<TransactionsPage />} />
+                            <Route path='/joinevent' element={<JoinEvent />} />
                         </Route>
                     </Routes>
                 </div>

@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import "./../styles/HomePag.css";
-import Box from '../component/Box';
+import { Link, useNavigate  } from 'react-router-dom';
 import { faShoppingBag, faPlane, faBriefcase, faMusic, faCalendarAlt, faRunning } from '@fortawesome/free-solid-svg-icons';
 import { useEventContext } from '../context/eventContext';
-import { Link } from 'react-router-dom';
+import Box from '../component/Box';
 import RectangleBox from '../component/RectangleBox';
 import EventCard from '../component/EventCard';
 import EventsCardss from '../component/EventsCardss';
+import './../styles/HomePag.css';
 
 const HomePage = () => {
   const [searchText, setSearchText] = useState('');
   const [category, setCategory] = useState('sport');
   const [time, setTime] = useState('today');
-  const { getLength, getFeatures, getLengthVenue, getAllTheEvents } = useEventContext();
+  const { getLength, getFeatures, getLengthVenue, getAllTheEvents, search } = useEventContext();
   const [featured, setFeatured] = useState();
   const [categoryLengths, setCategoryLengths] = useState({
     sport: 0,
@@ -26,6 +26,8 @@ const HomePage = () => {
   const [eventCount, setEventCount] = useState(0);
   const [venueCount, setVenueCount] = useState(0);
   const [allEvents, setAllEvents] = useState();
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate (); 
 
   const handleSearchInputChange = (e) => {
     setSearchText(e.target.value);
@@ -67,8 +69,17 @@ const HomePage = () => {
     setFeatured(featured);
   }
 
-  const handleSearchButtonClick = () => {
-    alert(`Search Text: ${searchText}\nCategory: ${category}\nTime: ${time}`);
+  const handleSearchButtonClick = async () => {
+    try {
+      setLoading(true);
+      const response = await search(searchText, category, time);
+      console.log(response);
+      navigate('/horizontal/search', { state: { events: response } });
+      setLoading(false);
+    } catch (error) {
+      console.error('Error searching events:', error);
+      setLoading(false);
+    }
   };
 
   const handleUserAndVenueLength = async () => {
@@ -123,7 +134,13 @@ const HomePage = () => {
             <option value="next_month">Next Month</option>
             <option value="future">Future</option>
           </select>
-          <button className='Homepagebutton' onClick={handleSearchButtonClick}>Search</button>
+          <button className='Homepagebutton' onClick={handleSearchButtonClick}>
+            {loading ? (
+              <span>Loading...</span>
+            ) : (
+              <span>Search</span>
+            )}
+          </button>
         </div>
       </div>
 

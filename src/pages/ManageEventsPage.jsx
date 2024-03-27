@@ -71,11 +71,12 @@ const ManageEventsPage = () => {
     const handleDeleteEvent = async (eventId) => {
         try {
             await deleteEvent(eventId, token);
-            navigate("/")
+            setEvents(prevEvents => prevEvents.filter(event => event._id !== eventId)); 
         } catch (error) {
             console.error('Error deleting event:', error);
         }
     };
+    
 
     const handleToggleTicketVisibility = async (eventId) => {
         const eventIndex = events.findIndex(eventItem => eventItem._id === eventId);
@@ -97,7 +98,7 @@ const ManageEventsPage = () => {
             <Card className='showmEventm'>
                 <Card.Body>
                     <Card.Img variant="top" src="/public/Personal files.gif" className='shownOdataimg' />
-                    <Card.Title>No event to add ticket</Card.Title>
+                    <Card.Title>No event to manage </Card.Title>
                     <Card.Text className='mb-3'>
                         Create your first event now!
                     </Card.Text>
@@ -173,7 +174,6 @@ const ManageEventsPage = () => {
                     <UpdateEventModal
                         eventDetails={selectedEvent}
                         handleClose={handleCloseModal}
-                        fetchEvents={fetchEvents}
                     />
                 )}
                 {selectedTicket && (

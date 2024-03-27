@@ -40,7 +40,7 @@ const SignupPage = () => {
   
   return (
     <div>
-      <Static title="REGISTER" title2="Register" />z
+      <Static title="REGISTER" title2="Register" />
 
       <div className='signup'>
         <h1>REGISTER USER</h1>

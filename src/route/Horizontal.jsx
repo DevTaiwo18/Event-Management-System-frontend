@@ -22,6 +22,7 @@ const Horizontal = () => {
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/event/:eventId" element={<EventDetailsPage />} />
                 <Route path="/name/category/time" element={<SearchPage />} />
+                <Route path="/search" element={<SearchPage />} />
             </Routes>
             <Footer />
         </div>
