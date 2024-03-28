@@ -173,7 +173,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .menu {
         display: block;
     }
@@ -280,7 +280,7 @@
     }
 }
 
-@media (max-wwidth: 500px) {
+@media (max-width: 500px) {
     .icon {
         padding-bottom: 0px;
     }
