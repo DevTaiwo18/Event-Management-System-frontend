@@ -143,7 +143,7 @@
     display: none;
 }
 
-.f{
+.f {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -288,6 +288,23 @@
     .nav {
         padding: 10px 5px 10px 5px;
     }
+
+    .nav div img {
+        height: 1rem;
+        padding-bottom: 6px;
+    }
+
+    .circle {
+        padding: 0px 8px;
+    }
+
+    .a {
+        text-decoration: none;
+    }
+
+    .circle p {
+        font-size: 8px;
+    }
 }
 
 @media (max-width: 320px) {
@@ -305,11 +322,11 @@
     }
 
     .nav div img {
-        height: 2rem;
+        height: 1rem;
         padding-bottom: 6px;
     }
 
-    .f{
+    .f {
         gap: 4px;
     }
 
