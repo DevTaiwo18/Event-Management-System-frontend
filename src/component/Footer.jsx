@@ -13,7 +13,7 @@ const Footer = () => {
         </div>
         <div className={styles.box}>
           <Link to={'/horizontal/'}><img src="/footer2.png" alt="" /></Link>
-          <p>adeyemitaiwo24434@gmail.com
+          <p>adeyemitaiwo@royalorbitzvoyage.com
             <br />
             +(234) 8026 151 366</p>
         </div>
