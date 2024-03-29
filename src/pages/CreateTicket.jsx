@@ -70,7 +70,7 @@ const CreateTicket = () => {
     return (
       <Card className='showmEventm'>
         <Card.Body>
-          <Card.Img variant="top" src="/public/Personal files.gif" className='shownOdataimg' />
+          <Card.Img variant="top" src="/Personal files.gif" className='shownOdataimg' />
           <Card.Title>No event to add ticket</Card.Title>
           <Card.Text className='mb-3'>
             Create your first event now!

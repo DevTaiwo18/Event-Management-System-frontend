@@ -18,7 +18,7 @@ const SearchPage = () => {
         </div>
       ) : (
         <div className="no-events-found">
-          <img src="/public/no-search-result-icon.webp" alt="" />
+          <img src="/no-search-result-icon.webp" alt="" />
           <h1>Hmmm...</h1>
           <p>We couldn't find any matches for the value you searched.</p>
           <p>Double-check your search and keep in mind that some events may not be available.</p>

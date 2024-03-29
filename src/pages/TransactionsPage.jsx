@@ -52,7 +52,7 @@ const TransactionsPage = () => {
         ) : (
           <Card className='showmEventm'>
             <Card.Body className='pb-5'>
-              <Card.Img variant="top" src="/public/tran.jpg" className='shownOdataimg' />
+              <Card.Img variant="top" src="/tran.jpg" className='shownOdataimg' />
               <Card.Title>No transactions available</Card.Title>
               <Card.Text className='mb-3'>
                 You have not made any transactions yet.

@@ -97,7 +97,7 @@ const ManageEventsPage = () => {
         return (
             <Card className='showmEventm'>
                 <Card.Body>
-                    <Card.Img variant="top" src="/public/Personal files.gif" className='shownOdataimg' />
+                    <Card.Img variant="top" src="/Personal files.gif" className='shownOdataimg' />
                     <Card.Title>No event to manage </Card.Title>
                     <Card.Text className='mb-3'>
                         Create your first event now!
@@ -148,7 +148,7 @@ const ManageEventsPage = () => {
                                                 <h1>{ticket.type}</h1>
                                             </div>
                                             <Card.Body>
-                                                <Card.Img src="/public/price_icon.png" className='ticketImg' />
+                                                <Card.Img src="/price_icon.png" className='ticketImg' />
                                                 {ticket.price === 0 ? (
                                                     <Card.Text>Free</Card.Text>
                                                 ) : (

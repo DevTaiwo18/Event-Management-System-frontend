@@ -64,7 +64,7 @@ const ManageRegistrationsPage = () => {
         ) : (
           <Card className='showmEventm'>
             <Card.Body>
-              <Card.Img variant="top" src="/public/Personal files.gif" className='shownOdataimg' />
+              <Card.Img variant="top" src="/Personal files.gif" className='shownOdataimg' />
               <Card.Title>No events available for managing registrations</Card.Title>
               <Card.Text className='mb-3'>
                 Create your first event now!
@@ -117,7 +117,7 @@ const ManageRegistrationsPage = () => {
               ) : (
                 <Card className='showmEventm'>
                   <Card.Body className='pb-5'>
-                    <Card.Img variant="top" src="/public/No data-rafiki.png" className='shownOdataimg' />
+                    <Card.Img variant="top" src="/No data-rafiki.png" className='shownOdataimg' />
                     <Card.Title>No registrations available</Card.Title>
                     <Card.Text className='mb-3'>
                       No users have registered for this event yet.

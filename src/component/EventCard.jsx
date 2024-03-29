@@ -34,7 +34,7 @@ const EventCard = ({ event }) => {
           </Link>
           <p className='eventcardD'>{shortDescription}...</p>
           <div className="eventf">
-            <img src="/public/location-2955.png" alt="" />
+            <img src="/location-2955.png" alt="" />
             <p className='location'>{event.location}...</p>
           </div>
         </div>

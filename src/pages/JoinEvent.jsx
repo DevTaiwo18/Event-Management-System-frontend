@@ -66,7 +66,7 @@ const JoinEvent = () => {
         ) : (
           <Card className='showmEventm'>
             <Card.Body className='pb-5'>
-              <Card.Img variant="top" src="/public/No data-rafiki.png" className='shownOdataimg' />
+              <Card.Img variant="top" src="/No data-rafiki.png" className='shownOdataimg' />
               <Card.Title>No events to join</Card.Title>
               <Card.Text className='mb-3'>
                 Join some events now!

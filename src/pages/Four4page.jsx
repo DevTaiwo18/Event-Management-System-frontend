@@ -8,7 +8,7 @@ const Four4page = () => {
         <div>
             <Card className='showmEventm pb-5'>
                 <Card.Body>
-                    <Card.Img variant="top" src="/public/404.jpg" className='shownOdataimg pt-4' />
+                    <Card.Img variant="top" src="/404.jpg" className='shownOdataimg pt-4' />
                     <Card.Title>404 - Page Not Found</Card.Title>
                     <Card.Text className='mb-3'>
                         The page you are looking for does not exist.
