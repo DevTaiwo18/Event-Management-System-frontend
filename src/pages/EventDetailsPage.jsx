@@ -160,7 +160,7 @@ const EventDetailsPage = () => {
                     <div className="ticketbody" key={ticket._id}>
                       <button className="ticketbodybtn">{ticket.type}</button>
                       <img src="/price_icon.png" alt="" className="ticketbodyImg" />
-                      <h4 className="ticketbodyh4">{ticket.price === 0 ? "Free" : ticket.price}</h4>
+                      <h4 className="ticketbodyh4">{ticket.price === 0 ? "Free" : `₦${ticket.price}`}</h4>
                       <p className="ticketbodyp">{ticket.sit} Tickets</p>
                       <button
                         className="registerforevent"
