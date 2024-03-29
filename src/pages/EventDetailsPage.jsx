@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { useUserContext } from '../context/userContext';
+import {useNavigate} from "react-router-dom"
 
 const EventDetailsPage = () => {
   const [eventDetails, setEventDetails] = useState(null);
@@ -21,6 +22,8 @@ const EventDetailsPage = () => {
   const { registerForevent } = useUserContext();
   const { eventId } = useParams();
   const [loading, setLoading] = useState(false);
+  const navigation = useNavigate();
+
 
   useEffect(() => {
     handleGetSingleEvent();
@@ -57,7 +60,10 @@ const EventDetailsPage = () => {
   };
 
   const handleRegisterForEvent = (ticketId, ticketType) => {
-    console.log(ticketType);
+    if (!token) {
+      navigation('/horizontal/login');
+      return; 
+    }
     setShowModal(true);
     setSelectedTicketId(ticketId);
     setSelectedTicketType(ticketType);
