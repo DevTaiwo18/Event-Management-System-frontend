@@ -27,9 +27,6 @@ const UpdateEventModal = ({ eventDetails, handleClose, fetchEvents }) => {
             if (updated) {
                 handleClose();
                 navigate('/vertical/createTicket');
-                setTimeout(() => {
-                    navigate('/vertical/manageevent', { replace: true });
-                }, 10); 
             }   else {
                 console.error('Failed to update event');
             }
