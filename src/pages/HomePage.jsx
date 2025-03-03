@@ -198,27 +198,6 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="featuereEvent">
-        <h3 className='images-title'>FEATURED EVENTS</h3>
-        <h4 className='images-h4'>Recommended events</h4>
-
-        <div className="featureFlex">
-          {featured && featured.length > 0 && (
-            featured.slice(0, 3).map(event => {
-              return <EventCard key={event._id} event={event} />;
-            })
-          )}
-        </div>
-
-
-        <Link to={"/horizontal/event"} className='Links'>
-          <div className="allevent">
-            <p className='allEventp'>All Events</p>
-          </div>
-        </Link>
-
-      </div>
-
       <div className="displayCapcity">
         <div className="">
           <div className="topss">
